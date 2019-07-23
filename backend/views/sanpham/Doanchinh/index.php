@@ -5,6 +5,7 @@
     <section class="content-header">
         <h1>
             Đồ ăn chính
+            <small>Control panel</small>
         </h1>
     </section>
 
@@ -17,15 +18,17 @@
         </a>
     </section>
     <table class="table" >
-        <th>STT</th>
-        <th>Tên sản phẩm</th>
-        <th>Tên tiếng Anh</th>
-        <th>Hình ảnh</th>
-        <th>Giá</th>
-        <th>Miêu tả</th>
-        <th>Thời gian tạo</th>
-        <th>Trạng thái</th>
-        <th>Thao tác</th>
+        <tr>
+            <th>STT</th>
+            <th>Tên sản phẩm</th>
+            <th>Tên tiếng Anh</th>
+            <th>Hình ảnh</th>
+            <th>Giá</th>
+            <th style="text-align: center">Miêu tả</th>
+            <th>Thời gian tạo</th>
+            <th>Trạng thái</th>
+            <th>Thao tác</th>
+        </tr>
 
         <?php if (!empty($doanchinh)): ?>
             <?php foreach ($doanchinh as $value): ?>
@@ -35,27 +38,27 @@
                     </td>
 
                     <td>
-                        <?php echo $value['Ten sp']; ?>
+                        <?php echo $value['Ten_sp']; ?>
                     </td>
                     <td>
-                        <?php echo $value['Ten tieng Anh']; ?>
+                        <?php echo $value['Ten_tieng_Anh']; ?>
                     </td>
                     <td>
-                        <?php echo $value['Hinh anh']?>
+                        <?php echo $value['Hinh_anh']?>
                     </td>
                     <td>
                         <?php echo $value['Gia']; ?>
                     </td>
                     <td>
-                        <?php echo $value['Mieu ta']; ?>
+                        <?php echo $value['Mieu_ta']; ?>
                     </td>
                     <td>
-                        <?php echo date('d-m-Y H:i:s', Strtotime($value['Thoi gian tao'])) ; ?>
+                        <?php echo date('d-m-Y H:i:s', Strtotime($value['Thoi_gian_tao'])) ; ?>
                     </td>
                     <td>
                         <?php
                         $status = '';
-                        switch ($value['Trang thai']){
+                        switch ($value['Trang_thai']){
                             case Doanchinh::STATUS_ENABLED: $status = 'Enabled';
                             break;
                             case Doanchinh::STATUS_DISABLED: $status = 'Disabled';
@@ -71,9 +74,9 @@
                         $urlUpdate = 'index.php?controller=doanchinh&action=update&id='.$value['STT'];
                         $urlDelete = "index.php?controller=doanchinh&action=delete&id={$value['STT']}";
                         ?>
-                        <a href="<?php echo $urlDetail?>"><span class="fa fa-eye"></span></a>
-                        <a href="<?php echo $urlUpdate?>"><span class="fa fa-pencil"></span></a>
-                        <a href="<?php echo $urlDelete?>" onclick="return confirm('Bạn có chắc chắn xóa bản ghi này không?');"><span class="fa fa-trash"></span></a>
+                        <a href="<?php echo $urlDetail?>"><i class="fas fa-eye"></i></a><br/>
+                        <a href="<?php echo $urlUpdate?>"><i class="fas fa-pencil-alt"></i></a><br/>
+                        <a href="<?php echo $urlDelete?>" onclick="return confirm('Bạn có chắc chắn xóa bản ghi này không?');"><i class="fas fa-trash-alt"></i></a>
                     </td>
             </tr>
             <?php endforeach; ?>

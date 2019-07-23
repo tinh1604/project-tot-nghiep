@@ -2,8 +2,7 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-            Đồ ăn sáng
-            <small>Control panel</small>
+            Thêm đồ ăn sáng
         </h1>
 
     </section>
@@ -33,7 +32,7 @@
             </div>
             <div class="form-group">
                 <label>Miêu tả</label>
-                <textarea id='doansang-description' name="description" class="form-control"><?php echo isset($_POST['description']) ? $_POST['description'] : '' ?></textarea>
+                <textarea id='description' name="description" class="form-control"><?php echo isset($_POST['description']) ? $_POST['description'] : '' ?></textarea>
             </div>
             <div class="form-group">
                 <div class="form-group">

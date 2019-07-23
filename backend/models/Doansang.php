@@ -17,7 +17,7 @@ class Doansang extends Model
     }
     public function insert($doansang = []) {
         $connection = $this->openConnection();
-        $queryInsert = "INSERT INTO doansang(`Ten sp`, `Ten tieng Anh`, `Hinh anh`, `Gia`, `Mieu ta`, `Trang thai`)
+        $queryInsert = "INSERT INTO doansang(`Ten_sp`, `Ten_tieng_Anh`, `Hinh_anh`, `Gia`, `Mieu_ta`, `Trang_thai`)
     VALUES('{$doansang['name']}',
     '{$doansang['nameEnglish']}',
     '{$doansang['img']}',
@@ -54,7 +54,7 @@ class Doansang extends Model
     }
     public function update_doansang($doansang){
         $connection = $this->openConnection();
-        $queryUpdate = "UPDATE doansang SET Ten sp = '{$doansang['name']}',Ten tieng Anh = '{$doansang['nameEnglish']}',Hinhanh = '{$doansang['img']}',Gia = '{$doansang['price']}', Mieu ta = '{$doansang['description']}', Trang thai = '{$doansang['status']}' WHERE STT = '{$doansang['STT']}' ";
+        $queryUpdate = "UPDATE doansang SET Ten_sp = '{$doansang['name']}',Ten_tieng_Anh = '{$doansang['nameEnglish']}',Hinh_anh = '{$doansang['img']}',Gia = '{$doansang['price']}', Mieu_ta = '{$doansang['description']}', Trang_thai = '{$doansang['status']}' WHERE STT = '{$doansang['STT']}' ";
         $isUpdate = mysqli_query($connection,$queryUpdate);
         mysqli_close($connection);
         if($isUpdate){

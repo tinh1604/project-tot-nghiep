@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css"/>
     <link rel="stylesheet" href="assets/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
@@ -25,13 +26,11 @@
     <header class="main-header">
         <!-- Logo -->
         <a href="index2.html" class="logo">
-            <span class="logo-mini"><b>A</b>LT</span>
+            <span class="logo-mini" style="font-size: 15px">Admin</span>
             <span class="logo-lg"><b>Victoria</b>  Coffee</span>
         </a>
         <nav class="navbar navbar-static-top">
-            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                <span class="sr-only">Toggle navigation</span>
-            </a>
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" id="hide_menu" onclick="myfunction()"></a>
 
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
@@ -95,7 +94,7 @@
                 </li>
                 <li>
                     <a>
-                        <i class="fa fa-code"></i> <span>Quản lý sản phẩm</span>
+                        <i class="fa fa-code"></i> <span id="category">Quản lý sản phẩm</span>
                         <span class="pull-right-container"></span>
                     </a>
 
@@ -103,14 +102,14 @@
 
             </ul>
             <ul id="list1">
-                <li> <a href="index.php?controller=doansang&action=index">Đồ ăn sáng</a></li>
-                <li> <a href="index.php?controller=doanchinh&action=index">Đồ ăn chính</a></li>
-                <li> <a href="index.php?controller=thucuong&action=index">Thức uống</a></li>
-                <li> <a href="index.php?controller=ruou&action=index">Rượu</a></li>
+                <li> <a href="index.php?controller=doansang&action=index"> <i class="fas fa-chevron-circle-right"></i> Đồ ăn sáng</a></li>
+                <li> <a href="index.php?controller=doanchinh&action=index"><i class="fas fa-chevron-circle-right"></i> Đồ ăn chính</a></li>
+                <li> <a href="index.php?controller=thucuong&action=index"><i class="fas fa-chevron-circle-right"></i> Thức uống</a></li>
+                <li> <a href="index.php?controller=ruou&action=index"><i class="fas fa-chevron-circle-right"></i> Rượu</a></li>
             </ul>
         </section>
     </aside>
-    <div>
+    <div style="margin-left: 230px">
         <?php  if(isset($_SESSION['error'])):?>
         <div class="alert alert-danger" rol="alert">
             <?php

@@ -30,7 +30,7 @@
             </div>
             <div class="form-group">
                 <label>Miêu tả</label>
-                <textarea id='doansang-description' name="description" class="form-control"><?php echo isset($_POST['description']) ? $_POST['description'] : ''; ?></textarea>
+                <textarea id='description' name="description" class="form-control"><?php echo isset($_POST['description']) ? $_POST['description'] : ''; ?></textarea>
             </div>
             <div class="form-group">
                 <div class="form-group">

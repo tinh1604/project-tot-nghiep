@@ -15,9 +15,9 @@
 <!-- Bootstrap 3.3.7 -->
 <script src="assets/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
-<script type="text/javascript"
-        src="assets/ckeditor/ckeditor.js">
+<script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
 <script src="assets/js/adminlte.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -13,11 +13,11 @@
         <form method="POST" action="index.php?controller=doansang&action=update&id=<?php echo $doansang['STT'];?>" enctype="multipart/form-data">
             <div class="form-group">
                 <label>Tên sản phẩm</label>
-                <input type="text" name="name" class="form-control" value=" <?php echo $doansang['Ten sp']; ?> "/>
+                <input type="text" name="name" class="form-control" value=" <?php echo $doansang['Ten_sp']; ?> "/>
             </div>
             <div class="form-group">
                 <label>Tên tiếng Anh</label>
-                <input type="text" name="nameEnglish" class="form-control"  value="<?php echo $doansang['Ten tieng Anh']; ?> "/>
+                <input type="text" name="nameEnglish" class="form-control"  value="<?php echo $doansang['Ten_tieng_Anh']; ?> "/>
             </div>
             <div class="form-group">
                 <label>
@@ -28,11 +28,11 @@
             </div>
             <div class="form-group">
                 <label>Giá</label>
-                <input type="number" name="price" class="form-control" value=" <?php echo $doansang['Gia'] ?>"/>
+                <input type="number" name="price" class="form-control" value=" <?php echo $doansang['Gia']; ?>"/>
             </div>
             <div class="form-group">
                 <label>Miêu tả</label>
-                <textarea id='doansang-description' name="description" class="form-control" value=" <?php echo $doansang['Mieu ta'] ?>"></textarea>
+                <textarea id='description' name="description" class="form-control" value=" <?php echo $doansang['Mieu_ta']; ?>"></textarea>
             </div>
             <div class="form-group">
                 <div class="form-group">

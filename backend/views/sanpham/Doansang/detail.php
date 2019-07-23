@@ -28,32 +28,32 @@
                     <?php echo $doansang['STT'] ?>
                 </td>
                 <td>
-                    <?php echo $doansang['Ten sp'] ?>
+                    <?php echo $doansang['Ten_sp'] ?>
                 </td>
                 <td>
-                    <?php echo $doansang['Ten tieng Anh'] ?>
+                    <?php echo $doansang['Ten_tieng_Anh'] ?>
                 </td>
                 <td>
-                    <?php if (!empty($doansang['Hinh anh'])): ?>
-                        <img src="assets/uploads/<?php echo $doansang['Hinh anh'] ?>"
+                    <?php if (!empty($doansang['Hinh_anh'])): ?>
+                        <img id="img_description" src="assets/uploads/<?php echo $doansang['Hinh_anh'] ?>"
                     <?php endif; ?>
                 </td>
                 <td>
                     <?php echo $doansang['Gia'] ?>
                 </td>
                 <td>
-                    <?php echo $doansang['Mieu ta'] ?>
+                    <?php echo $doansang['Mieu_ta'] ?>
                 </td>
                 <td>
-                    <?php if ($doansang['Trang thai'] == 1) {
+                    <?php if ($doansang['Trang_thai'] == 1) {
                         echo 'Enabled';
-                    } elseif ($doansang['Trang thai'] == 0) {
+                    } elseif ($doansang['Trang_thai'] == 0) {
                         echo 'Disabled';
                     }
                     ?>
                 </td>
                 <td>
-                    <?php echo $doansang['Thoi gian tao'] ?>
+                    <?php echo $doansang['Thoi_gian_tao'] ?>
                 </td>
             </tr>
         </table>

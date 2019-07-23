@@ -18,7 +18,7 @@ class Doanchinh extends Model
     }
     public function insert($doanchinh=[]){
         $connection = $this->openConnection();
-        $queryInsert = "INSERT INTO doanchinh(`Ten sp`, `Ten tieng Anh`, `Hinh anh`, `Gia`, `Mieu ta`, `Trang thai`)
+        $queryInsert = "INSERT INTO doanchinh(`Ten_sp`, `Ten_tieng_Anh`, `Hinh_anh`, `Gia`, `Mieu_ta`, `Trang_thai`)
     VALUES('{$doanchinh['name']}',
     '{$doanchinh['nameEnglish']}',
     '{$doanchinh['img']}',

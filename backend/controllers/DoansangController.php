@@ -1,4 +1,4 @@
- o<?php
+<?php
 require_once 'controllers/Controller.php';
 require_once 'models/Doansang.php';
 
@@ -72,7 +72,6 @@ class DoansangController extends Controller
                 $isInsert = $doansangModel->insert($doansang);
                 if ($isInsert) {
                     $_SESSION['success'] = 'Innsert thành công';
-                    unset($_SESSION['success']);
                 } else {
                     $_SESSION['error'] = 'Innsert thất bại';
                 }
@@ -131,11 +130,8 @@ class DoansangController extends Controller
             }
             elseif (isset($_FILES['img'])) {
                 $imgArr = $_FILES['img'];
-                if ($imgArr['error'] == 4) {
-                    $_SESSION['error'] = 'Bạn chưa chọn file upload';
-                    require_once 'views/sanpham/doansang/update.php';
-                    return;
-                } else {
+
+                if ($imgArr['size'] > 0 && $imgArr['error'] == 0)  {
                     $extension = pathinfo($imgArr['name'], PATHINFO_EXTENSION);
                     if (!in_array($extension, ['jpg', 'gif', 'png', 'jpeg'])) {
                         $_SESSION['error'] = "Cần upload định dạng ảnh";
@@ -147,9 +143,7 @@ class DoansangController extends Controller
                         return;
                     }
 
-                }
                 $img = '';
-                if ($imgArr['size'] > 0 && $imgArr['error'] == 0) {
                     $dirUpload = 'uploads';
                     $pathUpload = __DIR__ . '/../assets/' . $dirUpload;
                     if (!file_exists($pathUpload)) {
@@ -172,7 +166,7 @@ class DoansangController extends Controller
                 'description' => $description,
                 'status' => $status,
             ];
-            $isUpdate = $doansangModel->update_doansang();
+            $isUpdate = $doansangModel->update_doansang($doansang);
             if ($isUpdate) {
                 $_SESSION['success'] = "Cập nhật bản ghi STT = $STT thành công";
             } else {
