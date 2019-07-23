@@ -1,3 +1,8 @@
 #list1{
-    color: darkgrey;
+    color: white;
+    width: 100%;
+}
+#list1 li a:hover{
+    background: #1a2226;
+    color: white;
 }

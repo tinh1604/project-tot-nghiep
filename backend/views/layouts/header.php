@@ -26,7 +26,7 @@
         <!-- Logo -->
         <a href="index2.html" class="logo">
             <span class="logo-mini"><b>A</b>LT</span>
-            <span class="logo-lg"><b>Admin</b>LTE</span>
+            <span class="logo-lg"><b>Victoria</b>  Coffee</span>
         </a>
         <nav class="navbar navbar-static-top">
             <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
@@ -110,3 +110,24 @@
             </ul>
         </section>
     </aside>
+    <div>
+        <?php  if(isset($_SESSION['error'])):?>
+        <div class="alert alert-danger" rol="alert">
+            <?php
+            echo $_SESSION['error'] ;
+            unset($_SESSION['error'])
+            ?>
+
+        </div>
+        <?php  endif; ?>
+        <?php  if(isset($_SESSION['success'])):?>
+            <div class="alert alert-success" rol="alert">
+                <?php
+                echo $_SESSION['success'] ;
+                unset($_SESSION['success'])
+                ?>
+
+            </div>
+        <?php  endif; ?>
+
+    </div>

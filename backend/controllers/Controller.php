@@ -8,5 +8,5 @@
 
 class Controller
 {
-
+public $pageTitle = 'Title của trang';
 }
