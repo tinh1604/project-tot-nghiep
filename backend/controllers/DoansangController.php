@@ -92,16 +92,24 @@ class DoansangController extends Controller
         }
         $doansangModel = new Doansang();
         $STT = $_GET['id'];
-        $isDelete = $doansangModel->delete_doansang($STT);
-        if($isDelete){
-            $_SESSION['success'] = "Xóa dữ liệu có STT = $STT thành công";
+        $doansang = $doansangModel -> getDoansangBySTT($STT);
+        $img = $doansang['Hinh_anh'];
+        $pathUpload = __DIR__.'/../assets/uploads';
+        if(isset($_POST['submit'])){
+            if(!empty($img)){
+                @unlink($pathUpload.'/'.$img);
+            }
+            $isDelete = $doansangModel->delete_doansang($STT);
+            if($isDelete){
+                $_SESSION['success'] = "Xóa dữ liệu có STT = $STT thành công";
+            }
+            else{
+                $_SESSION['error'] = "Xóa dữ liệu có STT = $STT thất bại";
+            }
+            header('Location: index.php?controller=doansang&action=index');
+            exit();
         }
-        else{
-            $_SESSION['error'] = "Xóa dữ liệu có STT = $STT thất bại";
-        }
-        header('Location: index.php?controller=doansang&action=index');
-        exit();
-
+        require_once 'views/sanpham/doansang/delete.php';
     }
 
 
@@ -143,13 +151,16 @@ class DoansangController extends Controller
                         return;
                     }
 
-                $img = '';
+                    $img = $doansang['Hinh_anh'];
                     $dirUpload = 'uploads';
                     $pathUpload = __DIR__ . '/../assets/' . $dirUpload;
+                    if(!empty($img)){
+                        @unlink($pathUpload.'/'.$img);
+                    }
                     if (!file_exists($pathUpload)) {
                         mkdir($pathUpload);
                     }
-                    $fileName = time() . $imgArr['name'];
+                    $fileName = time().$imgArr['name'];
                     $isUpload = move_uploaded_file($imgArr['tmp_name'], $pathUpload . '/' . $fileName);
                     if ($isUpload) {
                         $img = $fileName;

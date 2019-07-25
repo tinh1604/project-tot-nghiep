@@ -11,25 +11,6 @@ class DoanchinhController extends Controller
         require_once 'views/sanpham/doanchinh/index.php';
     }
 
-    public function delete()
-    {
-        if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-            $_SESSION['error'] = 'Tham số ID không hợp lệ';
-            header("Location: index.php?controller=doanchinh&action=index");
-            exit();
-        }
-        $doanchinhModel = new Doanchinh();
-        $STT = $_GET['id'];
-        $isDelete = $doanchinhModel->delete_doanchinh($STT);
-        if ($isDelete) {
-            $_SESSION['success'] = "Xóa dữ liệu STT = $STT thành công";
-        } else {
-            $_SESSION['error'] = "Xóa dữ liệu STT = $STT thất bại";
-        }
-        header("Location: index.php?controller=doanchinh&action=index");
-        exit();
-    }
-
     public function create()
     {
         if (isset($_POST['submit'])) {
@@ -101,6 +82,118 @@ class DoanchinhController extends Controller
 
         }
         require_once 'views/sanpham/doanchinh/create.php';
+    }
+    public function update(){
+        if(!isset($_GET['id']) || !is_numeric($_GET['id'])){
+            $_SESSION['error'] = 'Tham số ID không hợp lệ';
+            header('Location: index.php?controller=doanchinh&action=index');
+            exit();
+        }
+        $id = $_GET['id'];
+        $doanchinhModel = new Doanchinh();
+        $doanchinh = $doanchinhModel -> getDoanchinhByID($id);
+        if(isset($_POST['submit'])){
+            $name = $_POST['name'];
+            $nameEnglish = $_POST['nameEnglish'];
+            $description= $_POST['description'];
+            $price = $_POST['price'];
+            $status = $_POST['status'];
+            if(empty($name) || empty($nameEnglish) || empty($price) || empty($description)){
+                $_SESSION['error'] = 'Không được để trống các trường';
+                require_once 'views/sanpham/doanchinh/update.php';
+                return;
+            }
+            elseif(isset($_FILES['img'])){
+                $imgArr = $_FILES['img'];
+                if($imgArr['size'] > 0 && $imgArr['error'] == 0){
+                    $extension = pathinfo($imgArr['name'], PATHINFO_EXTENSION);
+                    if(!in_array($extension,['jpg', 'png', 'jpeg','gif'])){
+                        $_SESSION['error'] = 'File upload không phải dạng ảnh';
+                        require_once 'views/sanpham/doanchinh/update.php';
+                        return;
+
+                    }
+                    elseif ($imgArr['size'] > 2*1024*1024){
+                        $_SESSION['error'] = 'File upload dung lượng > 2Mb';
+                        require_once 'views/sanpham/doanchinh/update.php';
+                        return;
+                    }
+                   $img = $doanchinh['Hinh_anh'];
+                   $dirUpload = 'uploads';
+                   $pathUpload = __DIR__.'/../assets/'.$dirUpload;
+                   if(!empty($img)){
+                       @unlink($pathUpload.'/'.$img);
+                   }
+                   if(!file_exists($pathUpload)){
+                       mkdir($pathUpload);
+                   }
+                   $fileName = time().$imgArr['name'];
+                   $isUpload = move_uploaded_file($imgArr['tmp_name'], $pathUpload.'/'.$fileName);
+                   if($isUpload){
+                       $img = $fileName;
+                   }
+                }
+            }
+            $doanchinh = [
+                'id' => $id,
+                'name' => $name,
+                'nameEnglish' => $nameEnglish,
+                'img' => $img,
+                'price' => $price,
+                'description' => $description,
+                'name' => $name,
+                'status' => $status,
+            ];
+            $isUpdate = $doanchinhModel -> update_doanchinh($doanchinh);
+            if($isUpdate){
+                $_SESSION['success']= 'Update dữ liệu thành công';
+            }
+            else{
+                $_SESSION['error'] = 'Update dữ liệu thất bại';
+            }
+            header('Location: index.php?controller=doanchinh&action=index');
+            exit();
+
+        }
+        require_once 'views/sanpham/doanchinh/update.php';
+    }
+    public function detail(){
+        if(!isset($_GET['id']) || !is_numeric($_GET['id'])){
+            $_SESSION['error'] = 'Tham số ID không hợp lệ';
+            header('Location:index.php?controller=doanchinh&action=index');
+            exit();
+        }
+        $doanchinhModel = new Doanchinh();
+        $doanchinh = $doanchinhModel->getDoanchinhByID($_GET['id']);
+        require_once 'views/sanpham/doanchinh/detail.php';
+    }
+    public function delete(){
+        if(!is_numeric($_GET['id']) || !is_numeric($_GET['id'])){
+            $_SESSION = 'Tham số ID không hợp lệ';
+            header('Location: index.php?controller=doanchinh&action=index');
+            exit();
+        }
+
+        $doanchinhModel = new Doanchinh();
+        $id = $_GET['id'];
+        $doanchinh = $doanchinhModel->getDoanchinhByID($id);
+        $img = $doanchinh['Hinh_anh'];
+        $pathUpload = __DIR__ . '/../assets/uploads';
+        if(isset($_POST['submit'])){
+            if (!empty($img)) {
+                @unlink($pathUpload . '/' . $img);
+            }
+            $isDelete = $doanchinhModel->delete_doanchinh($id);
+            if($isDelete){
+                $_SESSION['success'] = 'Xóa dữ liệu thành công';
+            }
+            else{
+                $_SESSION['error'] = 'Xóa dữ liệu thất bại';
+            }
+            header('Location:index.php?controller=doanchinh&action=index');
+            exit();
+        }
+        require_once 'views/sanpham/doanchinh/delete.php';
     }
 
 

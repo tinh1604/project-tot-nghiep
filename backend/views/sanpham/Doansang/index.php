@@ -1,6 +1,6 @@
 <?php include_once 'views/layouts/header.php' ?>
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+<div class="content-wrapper" style="padding-bottom: 20px">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
@@ -17,7 +17,7 @@
             Thêm mới
         </a>
     </section>
-    <table class="table" >
+    <table class="table">
         <tr>
             <th>STT</th>
             <th>Tên sản phẩm</th>
@@ -75,9 +75,9 @@
                         $urlUpdate = 'index.php?controller=doansang&action=update&id='.$value['STT'];
                         $urlDelete = "index.php?controller=doansang&action=delete&id={$value['STT']}";
                         ?>
-                        <a href="<?php echo $urlDetail?>"><i class="fas fa-eye"></i></a><bt/>
+                        <a href="<?php echo $urlDetail?>"><i class="fas fa-eye"></i></a><br/>
                         <a href="<?php echo $urlUpdate?>"><i class="fas fa-pencil-alt"></i></a><br/>
-                        <a href="<?php echo $urlDelete?>" onclick="return confirm('Bạn có chắc chắn xóa bản ghi này không?');"><i class="fas fa-trash-alt"></i></a>
+                        <a href="<?php echo $urlDelete?>"><i class="fas fa-trash-alt"></i></a>
                     </td>
             </tr>
             <?php endforeach; ?>
