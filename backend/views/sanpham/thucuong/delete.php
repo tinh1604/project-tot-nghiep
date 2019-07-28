@@ -1,4 +1,4 @@
-<?php require_once 'views' ?>
+<?php require_once 'views/layouts/header.php' ?>
 <div class="content-wrapper">
     <section class="content-header">
         <h4>Bạn có chắc chắn muốn xóa dữ liệu</h4>
@@ -8,7 +8,6 @@
             <tr>
                 <th>STT</th>
                 <th>Tên sản phẩm</th>
-                <th>Tên tiếng Anh</th>
                 <th>Hình ảnh</th>
                 <th>Giá sản phẩm</th>
                 <th style="text-align: center">Miêu tả</th>
@@ -18,7 +17,6 @@
             <tr>
                 <td><?php echo $drink['ID'] ?></td>
                 <td><?php echo $drink['Name'] ?></td>
-                <td><?php echo $drink['NameEnglish'] ?></td>
                 <td><?php echo $drink['Img'] ?></td>
                 <td><?php echo $drink['Price'] ?></td>
                 <td><?php echo $drink['Description'] ?></td>
@@ -30,7 +28,6 @@
                         echo 'Disabled';
                     }
                     ?>
-
                 </td>
             </tr>
 
@@ -40,7 +37,7 @@
     <?php endif; ?>
 
 <section class="content">
-    <form method="post" action="index.php?controller=drink&action=delete$id=<?php echo $_GET['id']?>">
+    <form method="post" action="index.php?controller=drink&action=delete&id=<?php echo $_GET['id']?>">
         <div class="form-group">
             <input type="submit" name="submit" class="btn btn-primary" value="Xóa">
             <a href="index.php?controller=drink&action=index">Hủy</a>

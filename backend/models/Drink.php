@@ -13,9 +13,9 @@ class Drink extends Model {
         return $drink;
     }
     public function insert($drink){
-        $connection = $this->openConnection;
-        $queryInsert = "INSERT INTO drink(`Name`, `NameEnglish`, `Img`, `Price`, `Description`, `Status`) VALUES(
-                            '{$drink['name']}', '{$drink['nameEnglish']}', '{$drink['Img']}', '{$drink['price']}', '{$drink['description']}', '{$drink['status']}')";
+        $connection = $this->openConnection();
+        $queryInsert = "INSERT INTO drink(`Name`, `Img`, `Price`, `Description`, `Status`) 
+                        VALUES('{$drink['name']}', '{$drink['img']}', '{$drink['price']}', '{$drink['description']}', '{$drink['status']}')";
         $isInsert = mysqli_query($connection, $queryInsert);
         mysqli_close($connection);
         return $isInsert;
@@ -32,15 +32,15 @@ class Drink extends Model {
         mysqli_close($connection);
         return $drink;
     }
-    public function update_drink($drink){
+    public function update($drink){
         $connection = $this->openConnection();
         $queryUpdate = "UPDATE drink SET 
                         `Name` = '{$drink['name']}',
-                        `NameEnglish` = '{$drink['nameEnglish']}',
                         `Img` = '{$drink['img']}',
                         `Price` = '{$drink['price']}',
-                        `Description` = '{$drink['descripton']}',
-                        `Status` = '{$drink['status']}',
+                        `Description` = '{$drink['description']}',
+                        `Status` = '{$drink['status']}'
+                        WHERE `ID` = '{$drink['id']}'
                         ";
         $isUpdate = mysqli_query($connection, $queryUpdate);
         mysqli_close($connection);
@@ -52,7 +52,7 @@ class Drink extends Model {
         }
 
     }
-    public function delete_drink($id){
+    public function delete($id){
         $connection = $this->openConnection();
         $queryDelete = "DELETE FROM drink WHERE ID = $id";
         $isDelete = mysqli_query($connection, $queryDelete);
@@ -64,11 +64,6 @@ class Drink extends Model {
             return false;
         }
     }
-
-
-
-
-
 
 }
 

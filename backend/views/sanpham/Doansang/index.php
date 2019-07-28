@@ -76,7 +76,7 @@
                         $urlDelete = "index.php?controller=doansang&action=delete&id={$value['STT']}";
                         ?>
                         <a href="<?php echo $urlDetail?>"><i class="fas fa-eye"></i></a><br/>
-                        <a href="<?php echo $urlUpdate?>"><i class="fas fa-pencil-alt"></i></a><br/>
+                        <a href="<?php echo $urlUpdate?>"><i class="fas fa-edit"></i></a><br/>
                         <a href="<?php echo $urlDelete?>"><i class="fas fa-trash-alt"></i></a>
                     </td>
             </tr>

@@ -8,6 +8,7 @@ class DoanchinhController extends Controller
     {
         $doanchinhModel = new Doanchinh();
         $doanchinh = $doanchinhModel->getAll();
+        $pages = $doanchinhModel->getPagination('doanchinh');
         require_once 'views/sanpham/doanchinh/index.php';
     }
 
@@ -98,6 +99,7 @@ class DoanchinhController extends Controller
             $description= $_POST['description'];
             $price = $_POST['price'];
             $status = $_POST['status'];
+            $img = $doanchinh['Hinh_anh'];
             if(empty($name) || empty($nameEnglish) || empty($price) || empty($description)){
                 $_SESSION['error'] = 'Không được để trống các trường';
                 require_once 'views/sanpham/doanchinh/update.php';
@@ -118,7 +120,6 @@ class DoanchinhController extends Controller
                         require_once 'views/sanpham/doanchinh/update.php';
                         return;
                     }
-                   $img = $doanchinh['Hinh_anh'];
                    $dirUpload = 'uploads';
                    $pathUpload = __DIR__.'/../assets/'.$dirUpload;
                    if(!empty($img)){
@@ -168,7 +169,7 @@ class DoanchinhController extends Controller
         require_once 'views/sanpham/doanchinh/detail.php';
     }
     public function delete(){
-        if(!is_numeric($_GET['id']) || !is_numeric($_GET['id'])){
+        if(!isset($_GET['id']) || !is_numeric($_GET['id'])){
             $_SESSION = 'Tham số ID không hợp lệ';
             header('Location: index.php?controller=doanchinh&action=index');
             exit();
@@ -178,10 +179,10 @@ class DoanchinhController extends Controller
         $id = $_GET['id'];
         $doanchinh = $doanchinhModel->getDoanchinhByID($id);
         $img = $doanchinh['Hinh_anh'];
-        $pathUpload = __DIR__ . '/../assets/uploads';
+        $pathImg = __DIR__ . '/../assets/uploads';
         if(isset($_POST['submit'])){
             if (!empty($img)) {
-                @unlink($pathUpload . '/' . $img);
+                @unlink($pathImg . '/' . $img);
             }
             $isDelete = $doanchinhModel->delete_doanchinh($id);
             if($isDelete){

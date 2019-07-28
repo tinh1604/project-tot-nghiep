@@ -13,25 +13,23 @@
     <table class="table">
     <tr>
         <th>ID</th>
-        <th>Name</th>
-        <th>NameEnglish</th>
-        <th>Img</th>
-        <th>Price</th>
-        <th>Description</th>
-        <th>Created_at</th>
-        <th>Status</th>
-        <th>Action</th>
+        <th>Tên sản phẩm</th>
+        <th>Hình ảnh</th>
+        <th>Giá</th>
+        <th>Miêu tả</th>
+        <th>Thời gian tạo</th>
+        <th>Trạng thái</th>
+        <th>Hành động</th>
     </tr>
     <?php if (!empty($drink)): ?>
         <?php foreach ($drink as $value): ?>
             <tr>
                 <td><?php echo $value['ID'] ?></td>
                 <td><?php echo $value['Name'] ?></td>
-                <td><?php echo $value['NameEnglish'] ?></td>
                 <td><?php echo $value['Img'] ?></td>
                 <td><?php echo $value['Price'] ?></td>
                 <td><?php echo $value['Description'] ?></td>
-                <td><?php echo date('d:m:Y H:i:s', strtotime($value['created_at'])) ?></td>
+                <td><?php echo date('d-m-Y H:i:s', strtotime($value['Created_at'])) ?></td>
                 <td><?php
                     $status = '';
                     if ($value['Status'] == 1) {
@@ -39,14 +37,15 @@
                     } else {
                         $status = 'Disable';
                     }
+                    echo $status;
                     ?>
                 </td>
                 <td>
-                    <?php $UrlDetail = 'index.php?controller=drink&action=detail'?>
-                    <?php $UrlUpdate = 'index.php?controller=drink&action=update'?>
-                    <?php $UrlDelete = 'index.php?controller=drink&action=delete'?>
+                    <?php $UrlDetail = 'index.php?controller=drink&action=detail&id='.$value['ID']?>
+                    <?php $UrlUpdate = 'index.php?controller=drink&action=update&id='.$value['ID']?>
+                    <?php $UrlDelete = 'index.php?controller=drink&action=delete&id='.$value['ID']?>
                     <a href="<?php echo $UrlDetail ?>"><i class="fas fa-eye"></i></a><br/>
-                    <a href="<?php echo $UrlUpdate?>"><i class="fas fa-pencil-alt"></i></a><br/>
+                    <a href="<?php echo $UrlUpdate?>"><i class="fas fa-edit"></i></a><br/>
                     <a href="<?php echo $UrlDelete?>"><i class="fas fa-trash-alt"></i></a>
                 </td>
         </tr>

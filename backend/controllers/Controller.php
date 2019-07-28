@@ -1,12 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nvmanh
- * Date: 7/12/2019
- * Time: 9:21 AM
- */
 
 class Controller
 {
-public $pageTitle = 'Title của trang';
+    public $pageTitle = 'Title của trang';
+
+    public function __construct()
+    {
+        if (!isset($_SESSION['admin']) && $_GET['action'] != 'login') {
+            $_SESSION['error'] = "Bạn cần đăng nhập để sử dụng hệ thống";
+            header("Location: index.php?controller=admin&action=login");
+            exit();
+        }
+    }
 }

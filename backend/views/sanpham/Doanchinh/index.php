@@ -75,7 +75,7 @@
                         $urlDelete = "index.php?controller=doanchinh&action=delete&id={$value['STT']}";
                         ?>
                         <a href="<?php echo $urlDetail?>"><i class="fas fa-eye"></i></a><br/>
-                        <a href="<?php echo $urlUpdate?>"><i class="fas fa-pencil-alt"></i></a><br/>
+                        <a href="<?php echo $urlUpdate?>"><i class="fas fa-edit"></i></a><br/>
                         <a href="<?php echo $urlDelete?>"><i class="fas fa-trash-alt"></i></a>
                     </td>
             </tr>
@@ -88,5 +88,9 @@
         <?php endif; ?>
 
     </table>
+    <?php
+    //hiển thị phân trang đã có được từ controller
+    echo $pages;
+    ?>
 </div>
 <?php include_once 'views/layouts/footer.php' ?>

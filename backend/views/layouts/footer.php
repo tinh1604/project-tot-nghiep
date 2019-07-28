@@ -1,3 +1,4 @@
+<?php if(isset($_SESSION['admin'])):?>
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
         <b>Version</b> 2.4.13-pre
@@ -7,7 +8,7 @@
 </footer>
 <div class="control-sidebar-bg"></div>
 </div>
-
+<?php endif;?>
 <!-- jQuery 3 -->
 <script src="assets/js/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->

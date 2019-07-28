@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+<?php if (isset($_SESSION['admin'])): ?>
 <div class="wrapper">
 
     <header class="main-header">
@@ -51,10 +52,10 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="index.php?controller=admin&action=detail&id=<?php echo $_SESSION['admin']['id'];?>" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="index.php?controller=admin&action=logout" class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -77,41 +78,58 @@
             </div>
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">LAOYOUT ADMIN</li>
-
                 <li>
-                    <a href="index.php?controller=news&action=index">
-                        <i class="fa fa-th"></i> <span>Quản lý tin tức</span>
-                        <span class="pull-right-container">
-            </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="pages/widgets.html">
-                        <i class="fa fa-code"></i> <span>Quản lý thành viên</span>
-                        <span class="pull-right-container">
-            </span>
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        <i class="fa fa-code"></i> <span id="category">Quản lý sản phẩm</span>
+                    <a href="index.php?controller=admin&action=index">
+                        <i class="fas fa-user-shield"></i> <span> Quản lý Admin</span>
                         <span class="pull-right-container"></span>
                     </a>
-
                 </li>
+                <li >
+                    <a href="index.php?controller=role&action=index">
+                        <i class="fas fa-users-cog"></i> <span id="category"> Quản lý quyền</span>
+                        <span class="pull-right-container"></span>
+                    </a>
+                </li>
+                <li id="menu_news">
+                    <a>
+                        <i class="fas fa-newspaper"></i> <span> Quản lý tin tức</span>
+                        <span class="pull-right-container"></span>
+                    </a>
+                </li>
+                <ul id="list_news">
+                    <li>
+                        <a href="index.php?controller=news&action=index">
+                            <i class="fas fa-chevron-circle-right"></i> <span> Nội dung tin tức</span>
+                            <span class="pull-right-container"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.php?controller=category&action=index">
+                            <i class="fas fa-chevron-circle-right"></i> Danh mục tin tức</span>
+                            <span class="pull-right-container"></span>
+                        </a>
+                    </li>
+                </ul>
 
+                <li id="menu_sp">
+                    <a >
+                        <i class="fas fa-cash-register"></i> <span id="category"> Quản lý sản phẩm</span>
+                        <span class="pull-right-container"></span>
+                    </a>
+                </li>
+                <ul id="list1">
+                    <li> <a href="index.php?controller=doansang&action=index"> <i class="fas fa-chevron-circle-right"></i> Đồ ăn sáng</a></li>
+                    <li> <a href="index.php?controller=doanchinh&action=index"><i class="fas fa-chevron-circle-right"></i> Đồ ăn chính</a></li>
+                    <li> <a href="index.php?controller=drink&action=index"><i class="fas fa-chevron-circle-right"></i> Thức uống</a></li>
+                    <li> <a href="index.php?controller=ruou&action=index"><i class="fas fa-chevron-circle-right"></i> Rượu</a></li>
+                </ul>
             </ul>
-            <ul id="list1">
-                <li> <a href="index.php?controller=doansang&action=index"> <i class="fas fa-chevron-circle-right"></i> Đồ ăn sáng</a></li>
-                <li> <a href="index.php?controller=doanchinh&action=index"><i class="fas fa-chevron-circle-right"></i> Đồ ăn chính</a></li>
-                <li> <a href="index.php?controller=drink&action=index"><i class="fas fa-chevron-circle-right"></i> Thức uống</a></li>
-                <li> <a href="index.php?controller=ruou&action=index"><i class="fas fa-chevron-circle-right"></i> Rượu</a></li>
-            </ul>
+
         </section>
     </aside>
     <div style="margin-left: 230px">
         <?php  if(isset($_SESSION['error'])):?>
-        <div class="alert alert-danger" rol="alert">
+        <div class="alert alert-danger">
             <?php
             echo $_SESSION['error'] ;
             unset($_SESSION['error'])
@@ -120,7 +138,7 @@
         </div>
         <?php  endif; ?>
         <?php  if(isset($_SESSION['success'])):?>
-            <div class="alert alert-success" rol="alert">
+            <div class="alert alert-success">
                 <?php
                 echo $_SESSION['success'] ;
                 unset($_SESSION['success'])
@@ -130,3 +148,4 @@
         <?php  endif; ?>
 
     </div>
+    <?php endif;?>
