@@ -54,6 +54,8 @@
                 </div>
             </form>
         </div>
+
+
         <a class="btn btn-primary"
            href="index.php?controller=news&action=create">
             <span class="glyphicon glyphicon-plus"></span>

@@ -6,7 +6,7 @@ class Doansang extends Model
     const STATUS_DISABLED = 0;
     public function getAll(){
         $connection = $this->openConnection();
-        $querySelect = "SELECT * FROM doansang";
+        $querySelect = "SELECT * FROM doansang LIMIT {$this->startpoint}, {$this->per_page}";
         $result = mysqli_query($connection,$querySelect);
         $doansang = [];
         if(mysqli_num_rows($result) > 0){

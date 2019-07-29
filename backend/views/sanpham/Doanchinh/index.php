@@ -10,6 +10,34 @@
     </section>
 
     <!-- Main content -->
+    <div class="search-form content">
+        <h4>Tìm kiếm</h4>
+        <!-- SEARCH nên để method get để có thể xử lý cho trường hợp phân trang-->
+        <form action="" method="GET">
+            <div class="row">
+                <div class="col-md-5 col-12">
+                    <label>Tên sản phẩm</label>
+                    <input type="text" name="name_doanchinh" value="<?php echo isset($_GET['name_doanchinh']) ? $_GET['name_doanchinh'] : ''?>" class="form-control"/>
+                </div>
+                <div class="col-md-3 col-12">
+                    <label>Giá</label>
+                    <input type="number" name="price_doanchinh" value="<?php echo isset($_GET['price_doanchinh']) ? $_GET['price_doanchinh'] : ''?>" class="form-control"/>
+                </div>
+                <!--cần thêm 2 input hidden tương ứng với 2 param controller và action trên url-->
+                <input type="hidden" name="controller" value="<?php echo isset($_GET['controller']) ? $_GET['controller'] : ''?>"/>
+                <input type="hidden" name="action" value="<?php echo isset($_GET['action']) ? $_GET['action'] : ''?>"/>
+            </div>
+            <br />
+            <div class="form-group">
+                <button type="submit" name="submit_search" class="btn btn-success">
+                    <span class="fa fa-search"></span> Tìm kiếm
+                </button>
+                <a href="index.php?controller=doanchinh&action=index" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+
     <section style="margin: 10px" >
         <a class="btn btn-primary"
            href="index.php?controller=doanchinh&action=create">

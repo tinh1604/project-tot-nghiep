@@ -3,7 +3,7 @@ require_once 'models/Model.php';
 class Drink extends Model {
     public function getAll(){
         $connection = $this->openConnection();
-        $querySelect = "SELECT * FROM drink";
+        $querySelect = "SELECT * FROM drink LIMIT {$this->startpoint}, {$this->per_page}";
         $result = mysqli_query($connection, $querySelect);
         $drink = [];
         if(mysqli_num_rows($result)>0){

@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Dashboard
+            Quản lý quyền
             <small>Control panel</small>
         </h1>
     </section>
@@ -16,7 +16,7 @@
             <span class="glyphicon glyphicon-plus"></span>
             Thêm mới
         </a>
-        <h2>Danh sách quyền</h2>
+        <h4>Danh sách quyền</h4>
         <table class="table table-bordered">
             <tr>
                 <th>ID</th>

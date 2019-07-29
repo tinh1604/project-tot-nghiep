@@ -121,7 +121,6 @@
                     <li> <a href="index.php?controller=doansang&action=index"> <i class="fas fa-chevron-circle-right"></i> Đồ ăn sáng</a></li>
                     <li> <a href="index.php?controller=doanchinh&action=index"><i class="fas fa-chevron-circle-right"></i> Đồ ăn chính</a></li>
                     <li> <a href="index.php?controller=drink&action=index"><i class="fas fa-chevron-circle-right"></i> Thức uống</a></li>
-                    <li> <a href="index.php?controller=ruou&action=index"><i class="fas fa-chevron-circle-right"></i> Rượu</a></li>
                 </ul>
             </ul>
 

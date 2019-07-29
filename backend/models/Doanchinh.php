@@ -6,10 +6,11 @@ class Doanchinh extends Model
     const STATUS_ENABLED = 1;
     const STATUS_DISABLED = 0;
 
+
     public function getAll()
     {
         $connection = $this->openConnection();
-        $querySelect = "SELECT * FROM doanchinh";
+        $querySelect = "SELECT * FROM doanchinh {$this->querySearch} LIMIT {$this->startpoint}, {$this->per_page}";
         $result = mysqli_query($connection, $querySelect);
         $doanchinh = [];
         if (mysqli_num_rows($result) > 0) {

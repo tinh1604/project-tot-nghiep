@@ -6,8 +6,20 @@ class DoansangController extends Controller
 {
     public function index()
     {
+        //xử lý khi submit form search
+        $arrSearch = [];
+        if (isset($_GET['submit_search'])) {
+            $name_doansang= $_GET['name_doansang'];
+            $price_doansang = $_GET['price_doansang'];
+            $arrSearch = [
+                'name_doansang' => $name_doansang,
+                'price_doansang' => $price_doansang,
+            ];
+        }
+
         $doansangModel = new Doansang;
-        $doansang = $doansangModel -> getAll();
+        $doansang = $doansangModel -> getAll($arrSearch);
+        $pages = $doansangModel -> getPagination('doansang');
         require_once 'views/Sanpham/Doansang/index.php';
     }
 

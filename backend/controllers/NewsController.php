@@ -24,7 +24,6 @@ class NewsController extends Controller
     }
     $newsModel = new News();
     $news = $newsModel->getAllPagination($arrSearch);
-    //hàm lấy phân trang
     $pages = $newsModel->getPagination('news');
     //lấy thông tin danh mục cho phần search
     $category_model = new Category();

@@ -3,8 +3,20 @@ require_once 'models/Drink.php';
 require_once 'controllers/Controller.php';
 class DrinkController extends Controller{
     public function index(){
+        //xử lý khi submit form search
+        $arrSearch = [];
+        if (isset($_GET['submit_search'])) {
+            $name_drink= $_GET['name_drink'];
+            $price_drink = $_GET['price_drink'];
+            $arrSearch = [
+                'name_drink' => $name_drink,
+                'price_drink' => $price_drink,
+            ];
+        }
+
         $drinkModel = new Drink();
-        $drink = $drinkModel->getALL();
+        $drink = $drinkModel->getALL($arrSearch);
+        $pages = $drinkModel->getPagination('drink');
         require_once 'views/sanpham/thucuong/index.php';
     }
     public function create(){

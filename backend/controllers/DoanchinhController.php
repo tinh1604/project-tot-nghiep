@@ -6,8 +6,19 @@ class DoanchinhController extends Controller
 {
     public function index()
     {
+        //xử lý khi submit form search
+        $arrSearch = [];
+        if (isset($_GET['submit_search'])) {
+            $name_doanchinh = $_GET['name_doanchinh'];
+            $price_doanchinh = $_GET['price_doanchinh'];
+            $arrSearch = [
+                'name_doanchinh' => $name_doanchinh,
+                'price_doanchinh' => $price_doanchinh,
+            ];
+        }
+
         $doanchinhModel = new Doanchinh();
-        $doanchinh = $doanchinhModel->getAll();
+        $doanchinh = $doanchinhModel->getAll($arrSearch);
         $pages = $doanchinhModel->getPagination('doanchinh');
         require_once 'views/sanpham/doanchinh/index.php';
     }

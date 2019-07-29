@@ -8,10 +8,6 @@ class Category extends Model
 
   public function getAllPagination()
   {
-    //do hiển thị theo cơ chế phân trang,
-    //nên sẽ không lấy toàn bộ dữ liệu nữa
-    // thay vào đó sẽ sử dung cơ chế limit (bản ghi bắt đầu lấy, lấy đến bản ghi nào)
-    //ví dụ LIMIT (0, 5) lấy bản ghi ví trí đầu tiên đến ví trí thứ 4
     $connection = $this->openConnection();
     $querySelect = "SELECT * FROM categories 
                     ORDER BY categories.id DESC

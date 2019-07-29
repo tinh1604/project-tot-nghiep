@@ -20,21 +20,28 @@ class Model {
 
 
 
+    //khai báo các tham số dùng trong phân trang
     public $page;
+    //số item trên mỗi page, dùng trong phân trang
     public $per_page = 5;
     public $startpoint;
     public $querySearch;
 
     public function __construct()
     {
+        //khởi tạo mặc định các biến của lớp cha Model, để các lớp con sử dụng khi kế thừa
         $this->page = (int)!isset($_GET['page']) ? 1 : $_GET['page'];
         if ($this->page < 0) $this->page = 1;
         $this->startpoint = ($this->page * $this->per_page) - $this->per_page;
+        //set giá trị cho query_search, trong trường hợp có form search
         $this->querySearch = $this->getQuerySearch();
     }
+
+//    Lấy các tham số dùng trong form search
     public function getQuerySearch()
     {
         $querySearch = ' WHERE TRUE';
+        // search cho phần news
         if (isset($_GET['title']) && !empty($_GET['title'])) {
             $querySearch .= " AND news.title LIKE '%{$_GET['title']}%'";
         }
@@ -46,6 +53,14 @@ class Model {
         }
         if (isset($_GET['like_total']) && !empty($_GET['like_total'])) {
             $querySearch .= " AND news.like_total = {$_GET['like_total']}";
+        }
+
+        //search cho đồ ăn chính
+        if (isset($_GET['name_doanchinh']) && !empty($_GET['name_doanchinh'])) {
+            $querySearch .= " AND doanchinh.Ten_sp LIKE '%{$_GET['name_doanchinh']}%'";
+        }
+        if (isset($_GET['price_doanchinh']) && !empty($_GET['price_doanchinh'])) {
+            $querySearch .= " AND doanchinh.Gia = {$_GET['price_doanchinh']}";
         }
 
         return $querySearch;

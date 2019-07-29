@@ -18,7 +18,7 @@ class Admin extends Model
         //ví dụ LIMIT (0, 5) lấy bản ghi ví trí đầu tiên đến ví trí thứ 4
         $connection = $this->openConnection();
         $querySelect = "SELECT admins.*, roles.id as role_id, roles.name as role_name FROM admins
-                    LEFT JOIN roles ON roles.id = admins.role_id
+                    INNER JOIN roles ON roles.id = admins.role_id
                     ORDER BY admins.created_at DESC
                     LIMIT {$this->startpoint}, {$this->per_page}
                     ";
@@ -70,7 +70,7 @@ class Admin extends Model
         //do bảng admins có  khóa ngoại role_id nên cần join các bảng roles để lấy các thông tin cần thiết
         $querySelect = "
         SELECT admins.*, roles.name as role_name, roles.name as role_name FROM admins
-        LEFT JOIN roles ON roles.id = admins.role_id
+        INNER JOIN roles ON roles.id = admins.role_id
         WHERE admins.id = $id";
 
         $results = mysqli_query($connection, $querySelect);
