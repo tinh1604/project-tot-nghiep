@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Danh mục tin tức
+            Danh mục sản phẩm
             <small>Control panel</small>
         </h1>
 
@@ -13,17 +13,18 @@
     <!-- Main content -->
     <section class="content">
         <a class="btn btn-primary"
-           href="index.php?controller=category&action=create">
+           href="index.php?controller=productcategory&action=create">
             <span class="glyphicon glyphicon-plus"></span>
             Thêm mới
         </a>
         <table class="table table-bordered">
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Status</th>
-                <th>Created_at</th>
-                <th>Ation</th>
+                <th>Loại sản phẩm</th>
+                <th>Miêu tả</th>
+                <th>Trang thái</th>
+                <th>Thời gian tạo</th>
+                <th>Chi tiết / sửa / xóa</th>
             </tr>
             <?php if (!empty($categories)): ?>
                 <?php foreach ($categories as $category): ?>
@@ -32,15 +33,18 @@
                             <?php echo $category['id']; ?>
                         </td>
                         <td>
-                            <?= $category['name']; ?>
+                            <?php echo $category['name']; ?>
+                        </td>
+                        <td>
+                            <?php echo $category['description']; ?>
                         </td>
                         <td>
                             <?php
                             $statusText = '';
                             switch ($category['status']) {
-                                case Category::STATUS_ENABLED: $statusText = 'Active';
+                                case Product_category::STATUS_ENABLED: $statusText = 'Active';
                                 break;
-                                case Category::STATUS_DISABLED: $statusText = 'Disabled';
+                                case Product_category::STATUS_DISABLED: $statusText = 'Disabled';
                                     break;
                             }
                             echo $statusText;
@@ -54,13 +58,13 @@
                         </td>
                         <td>
                             <?php
-                            $urlDetail = 'index.php?controller=category&action=detail&id=' . $category['id'];
-                            $urlUpdate = 'index.php?controller=category&action=update&id=' . $category['id'];
-                            $urlDelete = 'index.php?controller=category&action=delete&id=' . $category['id'];
+                            $urlDetail = 'index.php?controller=productcategory&action=detail&id=' . $category['id'];
+                            $urlUpdate = 'index.php?controller=productcategory&action=update&id=' . $category['id'];
+                            $urlDelete = 'index.php?controller=productcategory&action=delete&id=' . $category['id'];
                             ?>                          &nbsp;
                             <a href="<?php echo $urlDetail?>"><i class="fas fa-eye"></i></a>
                             <a href="<?php echo $urlUpdate?>"><i class="fas fa-edit"></i></a>
-                            <a href="<?php echo $urlDelete?>" onclick="return confirm('Bạn có chắc chắn muốn xóa bản ghi này không?')"><i class="fas fa-trash-alt"></i></a>&nbsp;
+                            <a href="<?php echo $urlDelete?>" ><i class="fas fa-trash-alt"></i></a>&nbsp;
                         </td>
                     </tr>
                 <?php endforeach; ?>

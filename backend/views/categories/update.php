@@ -3,10 +3,10 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
-            Quản lý danh mục tin tức
+        <h2>
+            Danh mục tin tức
             <small>Control panel</small>
-        </h1>
+        </h2>
     </section>
 
     <!-- Main content -->

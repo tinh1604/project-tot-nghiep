@@ -9,7 +9,7 @@
 
     <!-- Main content -->
     <section class="content">
-        <h2>Chi tiết tin tức #<?php echo $news['id']?></h2>
+        <h4>Chi tiết tin tức #<?php echo $news['id']?></h4>
         <table class="table table-bordered">
             <tr>
                 <td>ID</td>

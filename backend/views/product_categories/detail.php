@@ -3,10 +3,10 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h2>
-            Danh mục tin tức
+        <h1>
+            Chi tiết danh mục sản phẩm
             <small>Control panel</small>
-        </h2>
+        </h1>
     </section>
 
     <!-- Main content -->
@@ -36,9 +36,9 @@
                     <?php
                     $statusText = '';
                     switch ($category['status']) {
-                        case Category::STATUS_ENABLED: $statusText = 'Active';
+                        case Product_category::STATUS_ENABLED: $statusText = 'Active';
                             break;
-                        case Category::STATUS_DISABLED: $statusText = 'Disabled';
+                        case Product_category::STATUS_DISABLED: $statusText = 'Disabled';
                             break;
                     }
                     echo $statusText;

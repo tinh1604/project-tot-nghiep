@@ -118,9 +118,8 @@
                     </a>
                 </li>
                 <ul id="list1">
-                    <li> <a href="index.php?controller=doansang&action=index"> <i class="fas fa-chevron-circle-right"></i> Đồ ăn sáng</a></li>
-                    <li> <a href="index.php?controller=doanchinh&action=index"><i class="fas fa-chevron-circle-right"></i> Đồ ăn chính</a></li>
-                    <li> <a href="index.php?controller=drink&action=index"><i class="fas fa-chevron-circle-right"></i> Thức uống</a></li>
+                    <li> <a href="index.php?controller=product&action=index"> <i class="fas fa-chevron-circle-right"></i> Chi tiết sản phẩm</a></li>
+                    <li> <a href="index.php?controller=productcategory&action=index"><i class="fas fa-chevron-circle-right"></i> Danh mục sản phẩm</a></li>
                 </ul>
             </ul>
 

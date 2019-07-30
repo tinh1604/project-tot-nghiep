@@ -11,7 +11,7 @@
 
     <!-- Main content -->
     <section class="content">
-        <h2>Cập nhật tin tức #<?php echo $news['id']?></h2>
+        <h4>Cập nhật tin tức #<?php echo $news['id']?></h4>
         <form method="POST" action="" enctype="multipart/form-data">
             <div class="form-group">
                 <label>Title</label>

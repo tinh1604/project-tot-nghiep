@@ -11,7 +11,7 @@
 
     <!-- Main content -->
     <section class="content">
-        <h2>Thêm mới tin</h2>
+        <h4>Thêm mới tin</h4>
         <form method="POST" action="" enctype="multipart/form-data">
             <div class="form-group">
                 <label>Title</label>
