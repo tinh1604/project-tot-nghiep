@@ -8,10 +8,8 @@ class ProductcategoryController extends Controller
 
   public function index()
   {
-    $categoryModel = new Product_category();
-    $categories = $categoryModel->getAllPagination();
-    //lấy phân trang
-    $pages = $categoryModel->getPagination('categories');
+      $product_categoryModel = new Product_category();
+      $product_category = $product_categoryModel->getAll();
     require_once 'views/product_categories/index.php';
   }
 
@@ -27,14 +25,14 @@ class ProductcategoryController extends Controller
         require_once 'views/product_categories/create.php';
         return;
       }
-      $category = [
+        $product_category = [
         'name' => $name,
         'description' => $description,
         'status' => $status,
       ];
 
-      $categoryModel = new Product_category();
-      $isInsert = $categoryModel->insert($category);
+      $product_categoryModel = new Product_category();
+      $isInsert = $product_categoryModel->insert($product_category);
       if ($isInsert) {
         $_SESSION['success'] = 'Insert thành công';
       } else {
@@ -56,8 +54,8 @@ class ProductcategoryController extends Controller
     }
 
     $id = $_GET['id'];
-    $categoryModel = new Product_category();
-    $category = $categoryModel->getById($id);
+    $product_categoryModel = new Product_category();
+      $product_category = $product_categoryModel->getById($id);
 
     if (isset($_POST['submit'])) {
       $name = $_POST['name'];
@@ -69,15 +67,15 @@ class ProductcategoryController extends Controller
         return;
       }
 
-      $category = [
+        $product_category = [
         'id' => $id,
         'name' => $name,
         'description' => $description,
         'status' => $status,
       ];
 
-      $categoryModel = new Product_category();
-      $isUpdate = $categoryModel->update($category);
+        $product_categoryModel = new Product_category();
+      $isUpdate = $product_categoryModel->update($product_category);
       if ($isUpdate) {
         $_SESSION['success'] = 'Update thành công';
       } else {
@@ -96,11 +94,11 @@ class ProductcategoryController extends Controller
             exit();
         }
 
-        $categoryModel = new Product_category();
+        $product_categoryModel = new Product_category();
         $id = $_GET['id'];
-        $category = $categoryModel->getById($id);
+        $product_category = $product_categoryModel->getById($id);
         if(isset($_POST['submit'])){
-            $isDelete = $categoryModel->delete($id);
+            $isDelete = $product_categoryModel->delete($id);
             if($isDelete){
                 $_SESSION['success'] = 'Xóa dữ liệu thành công';
             }
@@ -121,8 +119,8 @@ class ProductcategoryController extends Controller
       exit();
     }
     $id = $_GET['id'];
-    $categoryModel = new Product_category();
-    $category = $categoryModel->getById($id);
+      $product_categoryModel = new Product_category();
+      $product_category = $product_categoryModel->getById($id);
     require_once 'views/product_categories/detail.php';
   }
 

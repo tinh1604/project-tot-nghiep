@@ -15,19 +15,19 @@
             <tr>
                 <td>ID</td>
                 <td>
-                    <?php echo $category['id']; ?>
+                    <?php echo $product_category['id']; ?>
                 </td>
             </tr>
             <tr>
                 <td>Name</td>
                 <td>
-                    <?php echo $category['name']; ?>
+                    <?php echo $product_category['name']; ?>
                 </td>
             </tr>
             <tr>
                 <td>Description</td>
                 <td>
-                    <?php echo $category['description']; ?>
+                    <?php echo $product_category['description']; ?>
                 </td>
             </tr>
             <tr>
@@ -35,7 +35,7 @@
                 <td>
                     <?php
                     $statusText = '';
-                    switch ($category['status']) {
+                    switch ($product_category['status']) {
                         case Product_category::STATUS_ENABLED: $statusText = 'Active';
                             break;
                         case Product_category::STATUS_DISABLED: $statusText = 'Disabled';
@@ -50,7 +50,7 @@
                 <td>
                     <?php
                     echo date('d-m-Y H:i:s',
-                        strtotime($category['created_at']));
+                        strtotime($product_category['created_at']));
                     ?>
                 </td>
             </tr>

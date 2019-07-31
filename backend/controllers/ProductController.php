@@ -1,6 +1,7 @@
 <?php
 require_once 'models/Product.php';
 require_once 'controllers/Controller.php';
+require_once 'models/Product_category.php';
 
 class ProductController extends Controller
 {
@@ -10,9 +11,11 @@ class ProductController extends Controller
         $arrSearch = [];
         if (isset($_GET['submit_search'])) {
             $name = $_GET['name'];
+            $product_category_id = $_GET['product_category_id'];
             $price = $_GET['price'];
             $arrSearch = [
                 'name' => $name,
+                'product_category_id' => $product_category_id,
                 'price' => $price,
             ];
         }
@@ -20,17 +23,25 @@ class ProductController extends Controller
         $productModel = new Product();
         $product = $productModel->getAll($arrSearch);
         $pages = $productModel->getPagination('product');
+
+        //lấy thông tin danh mục cho phần search
+        $product_category_model = new Product_category();
+        $product_category = $product_category_model->getAll();
+
         require_once 'views/product/index.php';
     }
 
     public function create()
     {
+        $product_categoryModel = new Product_category();
+        $product_category = $product_categoryModel -> getAll();
         if (isset($_POST['submit'])) {
             $name = $_POST['name'];
             $english_name = $_POST['english_name'];
             $price = $_POST['price'];
             $description = $_POST['description'];
             $status = $_POST['status'];
+            $product_category_id = $_POST['product_category_id'];
 
 
             if (empty($name) || empty($english_name) || empty($price) || empty($description)) {
@@ -75,6 +86,7 @@ class ProductController extends Controller
                 $product = [
                     'name' => $name,
                     'english_name' => $english_name,
+                    'product_category_id' => $product_category_id,
                     'img' => $img,
                     'price' => $price,
                     'description' => $description,
@@ -82,6 +94,9 @@ class ProductController extends Controller
                 ];
                 $productModel = new Product();
                 $isInsert = $productModel->insert($product);
+//                echo "<pre>";
+//                print_r($product);
+//                die;
                 if (isset($isInsert)) {
                     $_SESSION['success'] = 'Thêm dữ liệu thành công';
                 } else {

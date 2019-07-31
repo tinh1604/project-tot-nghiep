@@ -19,7 +19,6 @@ class News extends Model
                     INNER JOIN admins ON admins.id = news.admin_id
                     INNER JOIN categories ON categories.id = news.category_id
                     {$this->querySearch}
-                    ORDER BY news.id ASC 
                     LIMIT {$this->startpoint}, {$this->per_page}
 ";
     $results = mysqli_query($connection, $querySelect);

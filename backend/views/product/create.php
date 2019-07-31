@@ -9,7 +9,19 @@
      <!-- Main content -->
         <section class="content">
          <form method="POST" action="" enctype="multipart/form-data">
-            <div class="form-group">
+             <div class="form-group">
+                 <label>Loại sản phẩm</label>
+                 <select class="form-control" name="product_category_id">
+                     <?php if (!empty($product_category)): ?>
+                         <?php foreach ($product_category as $value): ?>
+                             <option value="<?php echo $value['id'] ?>" <?php echo isset($_POST['product_category_id']) && $value['id'] == $_POST['product_category_id'] ? "selected=true" : null ?>>
+                                 <?php echo $value['name'] ?>
+                             </option>
+                         <?php endforeach; ?>
+                     <?php endif; ?>
+                 </select>
+             </div>
+             <div class="form-group">
                 <label>Tên sản phẩm</label>
                 <input type="text" name="name" value="<?php echo isset($_POST['name']) ? $_POST['name'] : '';?>" class="form-control"/>
             </div>
@@ -17,7 +29,7 @@
                 <label>Tên tiếng Anh</label>
                 <input type="text" name="english_name" value="<?php echo isset($_POST['english_name']) ? $_POST['english_name'] : '';?>" class="form-control"/>
             </div>
-            <div class="form-group">
+             <div class="form-group">
                 <label>
                     Upload ảnh sản phẩm
                     (File dạng ảnh, dung lượng upload không vượt quá 2Mb)

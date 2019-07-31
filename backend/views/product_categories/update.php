@@ -2,7 +2,7 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-            Cập nhật danh mục sản phẩm ID = <?php echo $category['id']?>
+            Cập nhật danh mục sản phẩm ID = <?php echo $product_category['id']?>
         </h1>
 
     </section>
@@ -11,19 +11,19 @@
         <form method="POST" action="" enctype="multipart/form-data">
             <div class="form-group">
                 <label>Loại sản phẩm</label>
-                <input type="text" name="name" class="form-control" value="<?php echo $category['name']; ?> "/>
+                <input type="text" name="name" class="form-control" value="<?php echo $product_category['name']; ?> "/>
             </div>
 
             <div class="form-group">
                 <label>Miêu tả</label>
-                <textarea id='description' name="description" class="form-control"><?php echo $category['description']; ?></textarea>
+                <textarea id='description' name="description" class="form-control"><?php echo $product_category['description']; ?></textarea>
             </div>
             <div class="form-group">
                 <div class="form-group">
                     <?php
                     $Enabled= '';
                     $Disabled = '';
-                    if($category['status'] == 1){
+                    if($product_category['status'] == 1){
                         $Enabled = "selected=true";
                     }
                     else{

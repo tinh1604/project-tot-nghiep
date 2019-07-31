@@ -26,22 +26,22 @@
                 <th>Thời gian tạo</th>
                 <th>Chi tiết / sửa / xóa</th>
             </tr>
-            <?php if (!empty($categories)): ?>
-                <?php foreach ($categories as $category): ?>
+            <?php if (!empty($product_category)): ?>
+                <?php foreach ($product_category as $value): ?>
                     <tr>
                         <td>
-                            <?php echo $category['id']; ?>
+                            <?php echo $value['id']; ?>
                         </td>
                         <td>
-                            <?php echo $category['name']; ?>
+                            <?php echo $value['name']; ?>
                         </td>
                         <td>
-                            <?php echo $category['description']; ?>
+                            <?php echo $value['description']; ?>
                         </td>
                         <td>
                             <?php
                             $statusText = '';
-                            switch ($category['status']) {
+                            switch ($value['status']) {
                                 case Product_category::STATUS_ENABLED: $statusText = 'Active';
                                 break;
                                 case Product_category::STATUS_DISABLED: $statusText = 'Disabled';
@@ -53,14 +53,14 @@
                         <td>
                             <?php
                             echo date('d-m-Y H:i:s',
-                                strtotime($category['created_at']));
+                                strtotime($value['created_at']));
                             ?>
                         </td>
                         <td>
                             <?php
-                            $urlDetail = 'index.php?controller=productcategory&action=detail&id=' . $category['id'];
-                            $urlUpdate = 'index.php?controller=productcategory&action=update&id=' . $category['id'];
-                            $urlDelete = 'index.php?controller=productcategory&action=delete&id=' . $category['id'];
+                            $urlDetail = 'index.php?controller=productcategory&action=detail&id=' . $value['id'];
+                            $urlUpdate = 'index.php?controller=productcategory&action=update&id=' . $value['id'];
+                            $urlDelete = 'index.php?controller=productcategory&action=delete&id=' . $value['id'];
                             ?>                          &nbsp;
                             <a href="<?php echo $urlDetail?>"><i class="fas fa-eye"></i></a>
                             <a href="<?php echo $urlUpdate?>"><i class="fas fa-edit"></i></a>
@@ -77,8 +77,6 @@
             <?php endif; ?>
         </table>
         <?php
-        //hiển thị phân trang
-        echo $pages;
         ?>
     </section>
     <!-- /.content -->

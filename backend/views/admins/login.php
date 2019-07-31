@@ -1,7 +1,7 @@
 <?php include_once 'views/layouts/header.php' ?>
 <div class="form-login container">
     <?php if (isset($_SESSION['error'])): ?>
-        <div class="alert alert-danger" role="alert">
+        <div class="alert alert-danger" role="alert"  style="width: 30%; margin: 10px auto";>
             <?php
             echo $_SESSION['error'];
             unset($_SESSION['error']);
@@ -9,7 +9,7 @@
         </div>
     <?php endif; ?>
     <?php if (isset($_SESSION['success'])): ?>
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success" role="alert" style="width: 30%; margin: 10px auto";>
             <?php
             echo $_SESSION['success'];
             unset($_SESSION['success']);

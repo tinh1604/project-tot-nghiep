@@ -55,12 +55,15 @@ class Model {
             $querySearch .= " AND news.like_total = {$_GET['like_total']}";
         }
 
-        //search cho đồ ăn chính
-        if (isset($_GET['name_doanchinh']) && !empty($_GET['name_doanchinh'])) {
-            $querySearch .= " AND doanchinh.Ten_sp LIKE '%{$_GET['name_doanchinh']}%'";
+        //search sản phẩm
+        if (isset($_GET['name']) && !empty($_GET['name'])) {
+            $querySearch .= " AND product.name LIKE '%{$_GET['name']}%'";
         }
-        if (isset($_GET['price_doanchinh']) && !empty($_GET['price_doanchinh'])) {
-            $querySearch .= " AND doanchinh.Gia = {$_GET['price_doanchinh']}";
+        if (isset($_GET['price']) && !empty($_GET['price'])) {
+            $querySearch .= " AND product.price = {$_GET['price']}";
+        }
+        if (isset($_GET['product_category_id']) && $_GET['product_category_id'] != 0) {
+            $querySearch .= " AND product.product_category_id = {$_GET['product_category_id']}";
         }
 
         return $querySearch;

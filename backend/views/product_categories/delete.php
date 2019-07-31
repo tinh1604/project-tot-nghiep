@@ -8,7 +8,7 @@
 
         <!-- Main content -->
 
-        <?php if (!empty($category)): ?>
+        <?php if (!empty($product_category)): ?>
             <table class="table table-bordered"  >
                 <tr >
                     <th>ID</th>
@@ -19,24 +19,24 @@
                 </tr>
                 <tr>
                     <td>
-                        <?php echo $category['id'] ?>
+                        <?php echo $product_category['id'] ?>
                     </td>
                     <td>
-                        <?php echo $category['name'] ?>
+                        <?php echo $product_category['name'] ?>
                     </td>
                     <td>
-                        <?php echo $category['description'] ?>
+                        <?php echo $product_category['description'] ?>
                     </td>
                     <td>
-                        <?php if ($category['description'] == 1) {
+                        <?php if ($product_category['description'] == 1) {
                             echo 'Enabled';
-                        } elseif ($category['description'] == 0) {
+                        } elseif ($product_category['description'] == 0) {
                             echo 'Disabled';
                         }
                         ?>
                     </td>
                     <td>
-                        <?php echo $category['created_at'] ?>
+                        <?php echo $product_category['created_at'] ?>
                     </td>
                 </tr>
             </table>

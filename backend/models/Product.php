@@ -7,10 +7,13 @@ class Product extends Model
     const STATUS_DISABLED = 0;
 
 
-    public function getAll()
+    public function getAll($arrSearch)
     {
         $connection = $this->openConnection();
-        $querySelect = "SELECT * FROM product {$this->querySearch} LIMIT {$this->startpoint}, {$this->per_page}";
+        $querySelect = "SELECT product.*, product_category.name as product_category_name FROM product
+                    INNER JOIN product_category ON product_category.id = product.product_category_id  
+                    {$this->querySearch}                  
+                    LIMIT {$this->startpoint}, {$this->per_page}";
         $result = mysqli_query($connection, $querySelect);
         $product = [];
         if (mysqli_num_rows($result) > 0) {
@@ -23,9 +26,10 @@ class Product extends Model
     public function insert($product)
     {
         $connection = $this->openConnection();
-        $queryInsert = "INSERT INTO product(`name`, `english_name`, `img`, `price`, `description`, `status`)
+        $queryInsert = "INSERT INTO product(`name`, `english_name`, `product_category_id`, `img`, `price`, `description`, `status`)
     VALUES('{$product['name']}',
     '{$product['english_name']}',
+    '{$product['product_category_id']}',
     '{$product['img']}',
     '{$product['price']}',
     '{$product['description']}',

@@ -15,9 +15,22 @@
         <!-- SEARCH nên để method get để có thể xử lý cho trường hợp phân trang-->
         <form action="" method="GET">
             <div class="row">
-                <div class="col-md-5 col-12">
+                <div class="col-md-4 col-12">
                     <label>Tên sản phẩm</label>
                     <input type="text" name="name" value="<?php echo isset($_GET['name']) ? $_GET['name'] : ''?>" class="form-control"/>
+                </div>
+                <div class="col-md-4 col-12">
+                    <label>Loại sản phẩm</label>
+                    <select class="form-control" name="product_category_id">
+                        <option value="0">Chọn</option>
+                        <?php if (!empty($product_category)): ?>
+                            <?php foreach ($product_category as $value): ?>
+                                <option value="<?php echo $value['id'] ?>" <?php echo isset($_GET['product_category_id']) && $value['id'] == $_GET['product_category_id'] ? "selected=true" : null ?>>
+                                    <?php echo $value['name'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </select>
                 </div>
                 <div class="col-md-3 col-12">
                     <label>Giá</label>
@@ -50,6 +63,7 @@
             <th>STT</th>
             <th>Tên sản phẩm</th>
             <th>Tên tiếng Anh</th>
+            <th>Loại sản phẩm</th>
             <th>Hình ảnh</th>
             <th>Giá</th>
             <th style="text-align: center">Miêu tả</th>
@@ -70,6 +84,9 @@
                     </td>
                     <td>
                         <?php echo $value['english_name']; ?>
+                    </td>
+                    <td>
+                        <?php echo $value['product_category_name']; ?>
                     </td>
                     <td>
                         <?php echo $value['img']?>
