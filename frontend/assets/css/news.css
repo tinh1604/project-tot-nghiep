@@ -22,7 +22,7 @@
 #header {
     margin: 0 auto;
     width: 90%;
-    height: 600px;
+    height: 610px;
     background-repeat: no-repeat;
     background-image: url("../imgs/header.png");
     background-size: 100% auto;
@@ -43,7 +43,6 @@
     width: 90%;
     display: block;
     margin: 0 auto;
-    padding-top: 60px;
     background : linear-gradient(to bottom, #faf4dc, white);
 
 }
@@ -70,8 +69,8 @@
     padding-left: 25%;
     background: #a56317;
     background : linear-gradient(to bottom, #d38a23, #ecc98f);
-
 }
+
 #menu4{
     margin-top: 120px;
 }
@@ -195,9 +194,10 @@ a:link {
     background : linear-gradient(to bottom, #d38a23, #f5deb3);
     text-align: center;
     height: 150px;
-
 }
-
+#menu3 li{
+    list-style: none;
+}
 
 #content8 {
     color: #7a4c1d;
@@ -553,6 +553,7 @@ a:link {
     padding: 10px;
     border-radius: 25px;
     background : linear-gradient(to bottom, #cfbda7, white);
+    margin-bottom: 20px;
 
 
 }
@@ -562,6 +563,8 @@ a:link {
     padding: 10px;
     border-radius: 25px;
     background : linear-gradient(to bottom, #d3cf6e, white);
+    margin-bottom: 20px;
+
 
 }
 .block8 {
@@ -570,6 +573,8 @@ a:link {
     padding: 10px;
     border-radius: 25px;
     background : linear-gradient(to bottom, #ffcd74, white);
+    margin-bottom: 20px;
+
 
 }
 .block9 {
@@ -578,6 +583,8 @@ a:link {
     padding: 10px;
     border-radius: 25px;
     background : linear-gradient(to bottom, #f0dcb2, white);
+    margin-bottom: 20px;
+
 }
 
 .content10 {
@@ -727,7 +734,6 @@ a:link {
 p{text-align: justify}
 #cont1 {
     padding-top: 30px;
-    padding-left: 18px;
     font-family: Baskerville Old Face;
     font-weight: bold;
     font-size: 26px;

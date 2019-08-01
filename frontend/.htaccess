@@ -13,3 +13,6 @@ RewriteRule gio-hang-cua-ban index.php?controller=cart&action=index
 RewriteRule xoa-san-pham/([0-9]+) index.php?controller=cart&action=delete&id=$1
 #trang thanh toán
 RewriteRule thanh-toan index.php?controller=order&action=payment
+
+#trang sản phẩm
+RewriteRule san-pham/(.*)/([0-9]+) index.php?controller=product&action=breakfast_food&id=$2 [QSA]

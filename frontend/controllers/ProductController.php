@@ -11,4 +11,10 @@ class ProductController extends Controller
         $product = $productModel->getById($id);
         require_once 'views/products/detail.php';
     }
+    public function lunch_food() {
+        $productModel = new Product();
+        $product = $productModel->get_lunch_food();
+        $pages = $productModel->getPagination('product');
+        require_once 'views/products/lunch_food.php';
+    }
 }

@@ -21,7 +21,7 @@
                                     mệt mỏi. Ngay từ
                                     cái tên cũng chất chứa nét nhẹ nhàng, thanh tao...
                                 </a>
-                                <a id="content17" href="GioiThieu.html">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
+                                <a id="content17" href="<?php echo 'index.php?controller=home&action=intro'?>">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                                     <p class="content14" >Giá: 45.000 VNĐ</p>
                                     <a href=""><button class="content15"><i class="fas fa-utensils"></i> Chọn món</button></a>
                                 </div>
-                            </div><br/>
+                            </div>
                             <div class="col-md-3 col-12">
                                 <div class="block7" class="row" >
                                     <a href ="" class="hvr-grow">  <img class="img6" src="assets/imgs/do uong/espresso2.jpg"/> </a> <br/>
@@ -48,7 +48,7 @@
                                     <p class="content14" >Giá: 60.000 VNĐ</p>
                                     <a href=""><button class="content15"><i class="fas fa-utensils"></i> Chọn món</button></a>
                                 </div>
-                            </div><br/>
+                            </div>
                             <div class="col-md-3 col-12">
                                 <div class="block8" class="row" >
                                     <a href ="" class="hvr-grow">  <img class="img6" src="assets/imgs/do uong/capuchino.jpg"/> </a> <br/>
@@ -56,7 +56,7 @@
                                     <p class="content14" >Giá: 60.000 VNĐ</p>
                                     <a href=""><button class="content15"><i class="fas fa-utensils"></i> Chọn món</button></a>
                                 </div>
-                            </div><br/>
+                            </div>
                             <div class="col-md-3 col-12">
                                 <div class="block9" class="row" >
                                     <a href ="" class="hvr-grow">   <img class="img6" src="assets/imgs/do uong/ca phe den.jpg"/> </a> <br/>
@@ -65,9 +65,7 @@
                                     <a href=""><button class="content15"><i class="fas fa-utensils"></i> Chọn món</button></a>
                                 </div>
                             </div>
-                        </div> <br/>
 
-                        <div class="row">
                             <div class="col-md-3 col-12">
                                 <div class="block6" class="row" >
                                     <a href ="" class="hvr-grow"> <img class="img5" src="assets/imgs/do uong/caphevanidaxay.jpg"/> </a>
@@ -118,7 +116,7 @@
                                     <p class="content14" >Giá: 250.000 VNĐ</p>
                                     <a href=""><button class="content15"><i class="fas fa-utensils"></i> Chọn món</button></a>
                                 </div>
-                            </div><br/>
+                            </div>
                             <div class="col-md-3 col-12">
                                 <div class="block7" class="row" >
                                     <a href ="" class="hvr-grow">  <img class="img6" src="assets/imgs/monchinh/7.steak-vo-cung-h-p-d-n.jpg"/> </a>
@@ -126,7 +124,7 @@
                                     <p class="content14" >Giá: 250.000 VNĐ</p>
                                     <a href=""><button class="content15"><i class="fas fa-utensils"></i> Chọn món</button></a>
                                 </div>
-                            </div><br/>
+                            </div>
                             <div class="col-md-3 col-12">
                                 <div class="block8" class="row" >
                                     <a href ="" class="hvr-grow">  <img class="img6" src="assets/imgs/monchinh/1.bit tet.jpg"/> </a>
@@ -134,7 +132,7 @@
                                     <p class="content14" >Giá: 350.000 VNĐ</p>
                                     <a href=""><button class="content15"><i class="fas fa-utensils"></i> Chọn món</button></a>
                                 </div>
-                            </div><br/>
+                            </div>
                             <div class="col-md-3 col-12">
                                 <div class="block9" class="row" >
                                     <a href ="" class="hvr-grow">   <img class="img6" src="assets/imgs/monchinh/43.thit chung trung vit muoi.jpg"/> </a>
@@ -143,7 +141,7 @@
                                     <a href=""><button class="content15"><i class="fas fa-utensils"></i> Chọn món</button></a>
                                 </div>
                             </div>
-                        </div><br/>
+                        </div>
 
                         <div class="row">
                             <div class="col-md-3 col-12">
@@ -153,7 +151,7 @@
                                     <p class="content14" >Giá: 150.000 VNĐ</p>
                                     <a href=""><button class="content15"><i class="fas fa-utensils"></i> Chọn món</button></a>
                                 </div>
-                            </div> <br/>
+                            </div>
                             <div class="col-md-3 col-12">
                                 <div class="block7" class="row" >
                                     <a href="" class="hvr-grow"> <img class="img6" src="assets/imgs/monchinh/39.tom-hap-cuon-banh-trang.jpg"/> </a>
@@ -161,7 +159,7 @@
                                     <p class="content14" >Giá: 350.000 VNĐ</p>
                                     <a href=""><button class="content15"><i class="fas fa-utensils"></i> Chọn món</button></a>
                                 </div>
-                            </div><br/>
+                            </div>
                             <div class="col-md-3 col-12">
                                 <div class="block8" class="row" >
                                     <a href="" class="hvr-grow">  <img class="img6" src="assets/imgs/monchinh/20.muc-mot-nang--chien-gion-375k.jpg"/> </a>
@@ -169,7 +167,7 @@
                                     <p class="content14" >Giá: 375.000 VNĐ</p>
                                     <a href=""><button class="content15"><i class="fas fa-utensils"></i> Chọn món</button></a>
                                 </div>
-                            </div><br/>
+                            </div>
                             <div class="col-md-3 col-12">
                                 <div class="block9" class="row" >
                                     <a href="" class="hvr-grow"> <img class="img6" src="assets/imgs/monchinh/5.cua-nuong-quan-an-ngon-1498467425.jpg"/> </a>
@@ -177,7 +175,7 @@
                                     <p class="content14" >Giá: 500.000 VNĐ</p>
                                     <a href=""><button class="content15"><i class="fas fa-utensils"></i> Chọn món</button></a>
                                 </div>
-                            </div> <br/>
+                            </div>
 
 
                         </div>

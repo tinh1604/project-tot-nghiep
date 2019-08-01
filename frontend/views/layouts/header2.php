@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="assets/css/all.min.css"/>
 </head>
 <body>
-<?php require_once 'views/layouts/slide.php'?>
+<?php //require_once 'views/layouts/slide.php'?>
 <div id="block1">
-    <div id="header" style="background: none">
-<!--    <div id="header">-->
+<!--    <div id="header" style="background: none">-->
+    <div id="header">
         <ul id="menu1">
             <li><a href="DangNhap.html" class="hvr-shrink">Đăng nhập</a></li>
             <li><a href="DangKi.html" class="hvr-shrink">Đăng kí</a></li>
@@ -30,10 +30,10 @@
             <li><a href="<?php echo 'index.php?controller=home&action=intro'?>" class="hvr-float-shadow">Giới thiệu</a></li>
             <li id="menu5" onclick="myfunction()"><a class="hvr-float-shadow">Thực đơn <i class="fas fa-sort-down"> </i></a>
                 <ul id="submenu">
-                    <li><a href="index.php?controller=product&action=breakfast_food">Điểm tâm sáng</a></li>
-                    <li><a href="index.php?controller=product&action=lunch_food">Món chính</a></li>
-                    <li><a href="index.php?controller=product&action=drink">Thức uống</a></li>
-                    <li><a href="index.php?controller=product&action=booze">Rượu</a></li>
+                    <li><a href="DoAnSang.html">Điểm tâm sáng</a></li>
+                    <li><a href="DoAnChinh.html">Món chính</a></li>
+                    <li><a href="ThucUong.html">Thức uống</a></li>
+                    <li><a href="Ruou.html">Rượu</a></li>
                 </ul>
             </li>
             <li><a href="<?php echo 'index.php?controller=home&action=service'?>" class="hvr-float-shadow">Dịch vụ</a></li>
@@ -47,19 +47,12 @@
                     <p id="content1">Have A Sweet Time!</p>
                     <p id="content2">GOOD coffee</p>
                 </div>
-                <ul id="menu3" class="col-md-2 col-4">
+                <div id="menu3" class="col-md-2 col-4">
                     <p id="content3">Thực đơn chính</p>
-                    <li>
-                        <a href="index.php?controller=product&action=breakfast_food" class="hvr-forward"><i class="fas fa-hamburger"></i> Điểm tâm sáng</a> <br/>
-                    </li>
-                    <li>
-                        <a href="index.php?controller=product&action=lunch_food" class="hvr-forward"><i class="fas fa-utensils"></i>Cơm trưa</a> <br/>
-
-                    </li>
-                    <li>
-                        <a href="index.php?controller=product&action=drink" class="hvr-forward"><i class="fas fa-coffee"></i>Thức uống</a>
-                    </li>
-                </ul>
+                    <a href="DoAnSang.html" class="hvr-forward"><i class="fas fa-hamburger"></i> Điểm tâm sáng</a> <br/>
+                    <a href="DoAnChinh.html" class="hvr-forward"><i class="fas fa-utensils"></i> Cơm trưa</a> <br/>
+                    <a href="ThucUong.html" class="hvr-forward"><i class="fas fa-coffee"></i> Thức uống</a>
+                </div>
 
             </div>
         </div>

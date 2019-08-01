@@ -11,27 +11,60 @@ class Product extends Model
    * @param array $arrSearch Mảng các từ khóa search nếu có
    * @return array|null
    */
-  public function getAll()
+  public function get_lunch_food()
   {
-    //do hiển thị theo cơ chế phân trang,
-    //nên sẽ không lấy toàn bộ dữ liệu nữa
-    // thay vào đó sẽ sử dung cơ chế limit (bản ghi bắt đầu lấy, lấy đến bản ghi nào)
-    //ví dụ LIMIT (0, 5) lấy bản ghi ví trí đầu tiên đến ví trí thứ 4
-    $connection = $this->openConnection();
-    $querySelect = "SELECT products.*, admins.username as admin_username, categories.name as category_name FROM products
-                    INNER JOIN admins ON admins.id = products.admin_id
-                    INNER JOIN categories ON categories.id = products.category_id
-                    ORDER BY products.created_at DESC
-";
-    $results = mysqli_query($connection, $querySelect);
-    $products = [];
-    if (mysqli_num_rows($results) > 0) {
-      $products = mysqli_fetch_all($results, MYSQLI_ASSOC);
-    }
-    $this->closeConnection($connection);
 
-    return $products;
+      $connection = $this->openConnection();
+      $querySelect = "SELECT product.*, product_category.name as product_category_name FROM product
+                    INNER JOIN product_category ON product_category.id = product.product_category_id 
+                    WHERE product.product_category_id = '2'
+                    LIMIT {$this->startpoint}, {$this->per_page}
+                    ";
+      $result = mysqli_query($connection, $querySelect);
+      $product = [];
+      if (mysqli_num_rows($result) > 0) {
+          $product = mysqli_fetch_all($result, MYSQLI_ASSOC);
+      }
+      $this->closeConnection($connection);
+      return $product;
   }
+
+    public function get_breakfast_food()
+    {
+
+        $connection = $this->openConnection();
+        $querySelect = "SELECT product.*, product_category.name as product_category_name FROM product
+                    INNER JOIN product_category ON product_category.id = product.product_category_id 
+                    WHERE product.product_category_id = '1'
+                    LIMIT {$this->startpoint}, {$this->per_page}
+
+                    ";
+        $result = mysqli_query($connection, $querySelect);
+        $product = [];
+        if (mysqli_num_rows($result) > 0) {
+            $product = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        }
+        $this->closeConnection($connection);
+        return $product;
+    }
+
+    public function get_drink()
+    {
+        $connection = $this->openConnection();
+        $querySelect = "SELECT product.*, product_category.name as product_category_name FROM product
+                    INNER JOIN product_category ON product_category.id = product.product_category_id 
+                    WHERE product.product_category_id = '3'
+                    LIMIT {$this->startpoint}, {$this->per_page}
+                    ";
+        $result = mysqli_query($connection, $querySelect);
+        $product = [];
+        if (mysqli_num_rows($result) > 0) {
+            $product = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        }
+        $this->closeConnection($connection);
+        return $product;
+    }
+//LIMIT {$this->startpoint}, {$this->per_page}
 
 
   public function getById($id)
