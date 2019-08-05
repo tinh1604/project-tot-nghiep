@@ -60,7 +60,7 @@
     </section>
     <table class="table">
         <tr>
-            <th>STT</th>
+            <th>ID</th>
             <th>Tên sản phẩm</th>
             <th>Tên tiếng Anh</th>
             <th>Loại sản phẩm</th>
@@ -89,7 +89,9 @@
                         <?php echo $value['product_category_name']; ?>
                     </td>
                     <td>
-                        <?php echo $value['img']?>
+                        <?php if (!empty($value['img'])): ?>
+                            <img width="100px" src="assets/uploads/<?php echo $value['img'] ?>"
+                        <?php endif; ?>
                     </td>
                     <td>
                         <?php echo $value['price']; ?>
@@ -102,14 +104,14 @@
                     </td>
                     <td>
                         <?php
-                        $status = '';
-                        switch ($value['status']){
-                            case Product::STATUS_ENABLED: $status = 'Enabled';
+                        $highlight = '';
+                        switch ($value['highlight']){
+                            case 1: $highlight = 'Nổi bật';
                             break;
-                            case Product::STATUS_DISABLED: $status = 'Disabled';
+                            case 0: $highlight = 'bình thường';
                                 break;
                         }
-                        echo $status;
+                        echo $highlight;
                         ?>
 
                     </td>

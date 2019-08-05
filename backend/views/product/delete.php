@@ -42,9 +42,9 @@
                         <?php echo $product['description'] ?>
                     </td>
                     <td>
-                        <?php if ($product['status'] == 1) {
+                        <?php if ($product['highlight'] == 1) {
                             echo 'Enabled';
-                        } elseif ($product['status'] == 0) {
+                        } elseif ($product['highlight'] == 0) {
                             echo 'Disabled';
                         }
                         ?>

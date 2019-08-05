@@ -3,31 +3,66 @@ require_once 'models/Model.php';
 
 class Product extends Model
 {
-  const STATUS_ENABLED = 1;
-  const STATUS_DISABLED = 0;
+    const HIGHLIGHT_ENABLED = 1;
+    const HIGHLIGHT_DISABLED = 0;
 
-  /**
-   * Lấy dữ liệu có phân trang
-   * @param array $arrSearch Mảng các từ khóa search nếu có
-   * @return array|null
-   */
-  public function get_lunch_food()
-  {
+    /**
+     * Lấy dữ liệu có phân trang
+     * @param array $arrSearch Mảng các từ khóa search nếu có
+     * @return array|null
+     */
+    public function getAll()
+    {
 
-      $connection = $this->openConnection();
-      $querySelect = "SELECT product.*, product_category.name as product_category_name FROM product
+        $connection = $this->openConnection();
+        $querySelect = "SELECT product.*, product_category.name as product_category_name FROM product
+                    INNER JOIN product_category ON product_category.id = product.product_category_id 
+                                        {$this->querySearch}  
+                                       LIMIT {$this->startpoint}, {$this->per_page}
+ ";
+        $result = mysqli_query($connection, $querySelect);
+        $product = [];
+        if (mysqli_num_rows($result) > 0) {
+            $product = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        }
+        $this->closeConnection($connection);
+        return $product;
+    }
+
+    public function get_highlight_product()
+    {
+
+        $connection = $this->openConnection();
+        $querySelect = "SELECT product.*, product_category.name as product_category_name FROM product
+                    INNER JOIN product_category ON product_category.id = product.product_category_id 
+                    WHERE product.highlight = '1'
+ ";
+        $result = mysqli_query($connection, $querySelect);
+        $product = [];
+        if (mysqli_num_rows($result) > 0) {
+            $product = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        }
+        $this->closeConnection($connection);
+        return $product;
+    }
+
+
+    public function get_lunch_food()
+    {
+        $connection = $this->openConnection();
+        $querySelect = "SELECT product.*, product_category.name as product_category_name FROM product
                     INNER JOIN product_category ON product_category.id = product.product_category_id 
                     WHERE product.product_category_id = '2'
                     LIMIT {$this->startpoint}, {$this->per_page}
                     ";
-      $result = mysqli_query($connection, $querySelect);
-      $product = [];
-      if (mysqli_num_rows($result) > 0) {
-          $product = mysqli_fetch_all($result, MYSQLI_ASSOC);
-      }
-      $this->closeConnection($connection);
-      return $product;
-  }
+        $result = mysqli_query($connection, $querySelect);
+        $product = [];
+        if (mysqli_num_rows($result) > 0) {
+            $product = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        }
+        $this->closeConnection($connection);
+        return $product;
+    }
 
     public function get_breakfast_food()
     {
@@ -64,29 +99,43 @@ class Product extends Model
         $this->closeConnection($connection);
         return $product;
     }
-//LIMIT {$this->startpoint}, {$this->per_page}
 
-
-  public function getById($id)
-  {
-    $connection = $this->openConnection();
-    //do bảng products có các khóa ngoại nên cần join các bảng liên quan để lấy các thông tin cần thiết
-    $querySelect = "
-        SELECT products.*, categories.name as category_name, admins.username as admin_username FROM products
-        INNER JOIN categories ON categories.id = products.category_id
-        INNER JOIN admins ON admins.id = products.admin_id
-        WHERE products.id = $id";
-
-    $results = mysqli_query($connection, $querySelect);
-    $product = [];
-    if (mysqli_num_rows($results) == 1) {
-      $products = mysqli_fetch_all($results,
-        MYSQLI_ASSOC);
-      $product = $products[0];
+    public function get_booze()
+    {
+        $connection = $this->openConnection();
+        $querySelect = "SELECT product.*, product_category.name as product_category_name FROM product
+                    INNER JOIN product_category ON product_category.id = product.product_category_id 
+                    WHERE product.product_category_id = '4'
+                    LIMIT {$this->startpoint}, {$this->per_page}
+                    ";
+        $result = mysqli_query($connection, $querySelect);
+        $product = [];
+        if (mysqli_num_rows($result) > 0) {
+            $product = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        }
+        $this->closeConnection($connection);
+        return $product;
     }
 
-    return $product;
-  }
+    public function getById($id)
+    {
+        $connection = $this->openConnection();
+        //do bảng products có các khóa ngoại nên cần join các bảng liên quan để lấy các thông tin cần thiết
+        $querySelect = "SELECT product.*, product_category.name as product_category_name FROM product
+                    INNER JOIN product_category ON product_category.id = product.product_category_id 
+                    WHERE product.id = '$id'
+                    ";
+
+        $results = mysqli_query($connection, $querySelect);
+        $product = [];
+        if (mysqli_num_rows($results) == 1) {
+            $products = mysqli_fetch_all($results,
+                MYSQLI_ASSOC);
+            $product = $products[0];
+        }
+
+        return $product;
+    }
 
     public function getProductCartById($id)
     {

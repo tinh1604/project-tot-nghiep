@@ -1,9 +1,9 @@
 <?php
 session_start();
 $controller = isset($_GET['controller']) ?
-    $_GET['controller'] : 'home';
+    $_GET['controller'] : 'product';
 $action = isset($_GET['action']) ?
-    $_GET['action'] : 'show';
+    $_GET['action'] : 'index';
 
 $controller = ucfirst($controller);
 $controllerClass = $controller . "Controller";

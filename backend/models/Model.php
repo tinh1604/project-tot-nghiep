@@ -23,7 +23,7 @@ class Model {
     //khai báo các tham số dùng trong phân trang
     public $page;
     //số item trên mỗi page, dùng trong phân trang
-    public $per_page = 5;
+    public $per_page = 10;
     public $startpoint;
     public $querySearch;
 

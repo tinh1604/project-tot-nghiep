@@ -3,7 +3,7 @@
 <head>
     <base href="<?php echo $_SERVER['SCRIPT_NAME'] ?>">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title><?php echo $title?></title>
     <meta name="viewport" content="width=device-width,
      initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
@@ -26,9 +26,9 @@
 
         <img id="img1" src="assets/imgs/logo3.jpg"/>
         <ul id="menu2">
-            <li><a href="<?php echo 'index.php'?>" class="hvr-float-shadow">Trang chủ</a></li>
+            <li><a href="<?php echo 'index.php?controller=home&action=index'?>" class="hvr-float-shadow">Trang chủ</a></li>
             <li><a href="<?php echo 'index.php?controller=home&action=intro'?>" class="hvr-float-shadow">Giới thiệu</a></li>
-            <li id="menu5" onclick="myfunction()"><a class="hvr-float-shadow">Thực đơn <i class="fas fa-sort-down"> </i></a>
+            <li id="menu5" onclick="myfunction()"><a class="hvr-float-shadow" >Thực đơn <i class="fas fa-sort-down"> </i></a>
                 <ul id="submenu">
                     <li><a href="index.php?controller=product&action=breakfast_food">Điểm tâm sáng</a></li>
                     <li><a href="index.php?controller=product&action=lunch_food">Món chính</a></li>
@@ -53,11 +53,11 @@
                         <a href="index.php?controller=product&action=breakfast_food" class="hvr-forward"><i class="fas fa-hamburger"></i> Điểm tâm sáng</a> <br/>
                     </li>
                     <li>
-                        <a href="index.php?controller=product&action=lunch_food" class="hvr-forward"><i class="fas fa-utensils"></i>Cơm trưa</a> <br/>
+                        <a href="index.php?controller=product&action=lunch_food" class="hvr-forward"><i class="fas fa-utensils"></i> Cơm trưa</a> <br/>
 
                     </li>
                     <li>
-                        <a href="index.php?controller=product&action=drink" class="hvr-forward"><i class="fas fa-coffee"></i>Thức uống</a>
+                        <a href="index.php?controller=product&action=drink" class="hvr-forward"><i class="fas fa-coffee"></i> Thức uống</a>
                     </li>
                 </ul>
 

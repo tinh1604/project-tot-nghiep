@@ -62,7 +62,7 @@
             Thêm mới
         </a>
 
-        <h2>Danh sách tin tức</h2>
+        <h3>Danh sách tin tức</h3>
         <table class="table table-bordered">
             <tr>
                 <th>ID</th>
@@ -71,10 +71,10 @@
                 <th>Người tạo</th>
                 <th>Avatar</th>
                 <th>Lượt comment</th>
-                <th>Author</th>
-                <th>Status</th>
-                <th>Created_at</th>
-                <th>Ation</th>
+                <th>Tác giả</th>
+                <th>Trạng thái</th>
+                <th>Thời gian tạo</th>
+                <th>Xem / sửa / xóa</th>
             </tr>
           <?php if (!empty($news)): ?>
             <?php foreach ($news as $new): ?>

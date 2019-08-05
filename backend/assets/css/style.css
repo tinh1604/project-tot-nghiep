@@ -13,8 +13,7 @@
     color: white;
 }
 #img_description{
-    width: 100px;
-    height: auto;
+    width: 300px;
 }
 @media (max-width: 576px) {
     #list1{

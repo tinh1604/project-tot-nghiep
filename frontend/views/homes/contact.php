@@ -1,4 +1,4 @@
-<?php include_once 'views/layouts/header2.php' ?>
+<?php include_once 'views/layouts/header.php' ?>
 <!--Main container start -->
 <div id="main">
     <div class="container" style="max-width: 1220px">

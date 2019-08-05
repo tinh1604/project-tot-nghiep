@@ -3,8 +3,8 @@ require_once 'models/Model.php';
 
 class Product extends Model
 {
-    const STATUS_ENABLED = 1;
-    const STATUS_DISABLED = 0;
+    const HIGHTLIGHT_ENABLED = 1;
+    const HIGHLIGHT_DISABLED = 0;
 
 
     public function getAll($arrSearch)
@@ -26,14 +26,14 @@ class Product extends Model
     public function insert($product)
     {
         $connection = $this->openConnection();
-        $queryInsert = "INSERT INTO product(`name`, `english_name`, `product_category_id`, `img`, `price`, `description`, `status`)
+        $queryInsert = "INSERT INTO product(`name`, `english_name`, `product_category_id`, `img`, `price`, `description`, `highlight`)
     VALUES('{$product['name']}',
     '{$product['english_name']}',
     '{$product['product_category_id']}',
     '{$product['img']}',
     '{$product['price']}',
     '{$product['description']}',
-    '{$product['status']}')";
+    '{$product['highlight']}')";
         $isInsert = mysqli_query($connection, $queryInsert);
         $this->closeConnection($connection);
         return $isInsert;
@@ -45,10 +45,11 @@ class Product extends Model
         $queryUpdate = "UPDATE product SET 
                         `name` = '{$product['name']}', 
                         `english_name` = '{$product['english_name']}',
+                        `product_category_id` = '{$product['product_category_id']}',
                         `img` = '{$product['img']}',
                         `price` = '{$product['price']}',
                         `description` = '{$product['description']}',
-                        `status` = '{$product['status']}'
+                        `highlight` = '{$product['highlight']}'
                         WHERE id = '{$product['id']}'";
         $isUpdate = mysqli_query($connection, $queryUpdate);
         mysqli_close($connection);

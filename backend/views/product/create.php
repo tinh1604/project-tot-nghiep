@@ -46,13 +46,13 @@
             </div>
             <div class="form-group">
                 <div class="form-group">
-                    <label>Status</label>
-                    <select name="status" class="form-control">
+                    <label>Ghi chú</label>
+                    <select name="highlight" class="form-control">
                         <option selected="selected" value="1">
-                            Enabled
+                            Nổi bật
                         </option>
                         <option  value="0">
-                            Disabled
+                            bình thường
                         </option>
                     </select>
                 </div>

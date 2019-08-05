@@ -62,6 +62,6 @@ class OrderController extends Controller
 
       header("Location: gio-hang-cua-ban");
     }
-    require_once 'views/orders/index.php';
+    require_once 'views/orders/order.php';
   }
 }

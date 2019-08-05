@@ -40,11 +40,11 @@ class ProductController extends Controller
             $english_name = $_POST['english_name'];
             $price = $_POST['price'];
             $description = $_POST['description'];
-            $status = $_POST['status'];
+            $highlight = $_POST['highlight'];
             $product_category_id = $_POST['product_category_id'];
 
 
-            if (empty($name) || empty($english_name) || empty($price) || empty($description)) {
+            if (empty($name) || empty($price) || empty($description)) {
                 $_SESSION['error'] = 'Không được để trống các trường';
                 require_once 'views/product/create.php';
                 return;
@@ -90,7 +90,7 @@ class ProductController extends Controller
                     'img' => $img,
                     'price' => $price,
                     'description' => $description,
-                    'status' => $status,
+                    'highlight' => $highlight,
                 ];
                 $productModel = new Product();
                 $isInsert = $productModel->insert($product);
@@ -111,6 +111,8 @@ class ProductController extends Controller
         require_once 'views/product/create.php';
     }
     public function update(){
+        $product_categoryModel = new Product_category();
+        $product_category = $product_categoryModel -> getAll();
         if(!isset($_GET['id']) || !is_numeric($_GET['id'])){
             $_SESSION['error'] = 'Tham số ID không hợp lệ';
             header('Location: index.php?controller=product&action=index');
@@ -124,8 +126,10 @@ class ProductController extends Controller
             $english_name = $_POST['english_name'];
             $description= $_POST['description'];
             $price = $_POST['price'];
-            $status = $_POST['status'];
+            $highlight = $_POST['highlight'];
             $img = $product['img'];
+            $product_category_id = $_POST['product_category_id'];
+
             if(empty($name) || empty($english_name) || empty($price) || empty($description)){
                 $_SESSION['error'] = 'Không được để trống các trường';
                 require_once 'views/product/update.php';
@@ -169,7 +173,8 @@ class ProductController extends Controller
                 'price' => $price,
                 'description' => $description,
                 'name' => $name,
-                'status' => $status,
+                'highlight' => $highlight,
+                'product_category_id' => $product_category_id,
             ];
             $isUpdate = $productModel -> update($product);
             if($isUpdate){
