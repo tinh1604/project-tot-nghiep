@@ -1,4 +1,4 @@
-<?php include_once 'views/layouts/header2.php' ?>
+<?php include_once 'views/layouts/header.php' ?>
 <!--Main container start -->
 <div id="main">
     <div class="container" style="max-width: 1220px">
@@ -43,15 +43,15 @@
             <?php include_once 'views/layouts/sidebar-right.php' ?>
 
         </div>
-    </div>
+    </div><br/>
 </div>
 
 <p class="content23">CÓ THỂ BẠN THÍCH</p>
 <hr id="hr1"> <br/>
 <div class="container">
     <div class="row">
-        <?php if (!empty($product)): ?>
-<!--            --><?php //foreach ($product as $value):
+        <?php if (!empty($related_products)): ?>
+            <?php foreach ($related_products as $value):
                 $alias = Helper::alias($value['name']);
                 $id = $value['id'];
                 $urlProduct = "san-pham/$alias/$id";
@@ -68,7 +68,7 @@
                         </a>
                     </div>
                 </div>
-<!--            --><?php //endforeach; ?>
+            <?php endforeach; ?>
         <?php endif; ?>
 
     </div>

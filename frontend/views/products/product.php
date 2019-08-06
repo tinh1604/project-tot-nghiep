@@ -38,7 +38,7 @@
                     <button type="submit" name="submit_search" class="btn btn-success">
                         <span class="fa fa-search"></span> Tìm kiếm
                     </button>
-                    <a href="index.php?controller=product&action=index" class="btn btn-secondary">Hủy</a>
+                    <a href="thuc-don" class="btn btn-secondary">Hủy</a>
                 </div>
             </form>
         </div>

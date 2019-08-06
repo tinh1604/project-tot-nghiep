@@ -1,6 +1,8 @@
 <?php include_once 'views/layouts/header.php' ?>
 <!--Main container start -->
 <div id="main">
+    <?php
+    ?>
     <div class="container" style="max-width: 1220px">
         <div class="row">
 
@@ -21,7 +23,7 @@
                                     mệt mỏi. Ngay từ
                                     cái tên cũng chất chứa nét nhẹ nhàng, thanh tao...
                                 </a>
-                                <a id="content17" href="<?php echo 'index.php?controller=home&action=intro'?>">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
+                                <a id="content17" href="<?php echo 'gioi-thieu'?>">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                     </div>

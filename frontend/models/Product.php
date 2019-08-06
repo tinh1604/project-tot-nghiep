@@ -133,14 +133,13 @@ class Product extends Model
                 MYSQLI_ASSOC);
             $product = $products[0];
         }
-
+        $this->closeConnection($connection);
         return $product;
     }
 
     public function getProductCartById($id)
     {
         $connection = $this->openConnection();
-        //do bảng products có các khóa ngoại nên cần join các bảng liên quan để lấy các thông tin cần thiết
         $querySelect = "
         SELECT id, name, price, avatar FROM products
         WHERE id = $id";
@@ -152,8 +151,20 @@ class Product extends Model
                 MYSQLI_ASSOC);
             $product = $products[0];
         }
-
+        $this->closeConnection($connection);
         return $product;
+    }
+    public function related_products($id)
+    {
+        $connection = $this->openConnection();
+        $querySelect = "SELECT * FROM product WHERE id > $id AND id < $id+5";
+        $results = mysqli_query($connection, $querySelect);
+        $related_products = [];
+        if (mysqli_num_rows($results) > 0) {
+            $related_products = mysqli_fetch_all($results, MYSQLI_ASSOC);
+        }
+        $this->closeConnection($connection);
+        return $related_products;
     }
 
 }

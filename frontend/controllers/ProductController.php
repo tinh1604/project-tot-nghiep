@@ -11,6 +11,7 @@ class ProductController extends Controller
         $id = $_GET['id'];
         $productModel = new Product();
         $product = $productModel->getById($id);
+        $related_products = $productModel->related_products($id);
         require_once 'views/products/detail.php';
     }
     public function index()
@@ -44,6 +45,7 @@ class ProductController extends Controller
     public function lunch_food() {
         $title = 'Món chính';
         $product_category_name = 'Món chính';
+        $product_category_id = '2';
         $productModel = new Product();
         $product = $productModel->get_lunch_food();
         $pages = $productModel->getPagination('product');
@@ -52,6 +54,7 @@ class ProductController extends Controller
     public function breakfast_food() {
         $title = 'Điểm tâm sáng';
         $product_category_name = 'Điểm tâm sáng';
+        $product_category_id = '1';
         $productModel = new Product();
         $product = $productModel->get_breakfast_food();
         $pages = $productModel->getPagination('product');
@@ -59,6 +62,7 @@ class ProductController extends Controller
     }
     public function drink() {
         $title = 'Thức uống';
+        $product_category_id = '3';
         $product_category_name = 'Thức uống';
         $productModel = new Product();
         $product = $productModel->get_drink();
@@ -68,6 +72,7 @@ class ProductController extends Controller
     public function booze() {
         $title = 'Rượu';
         $product_category_name = 'Rượu';
+        $product_category_id = '4';
         $productModel = new Product();
         $product = $productModel->get_booze();
         $pages = $productModel->getPagination('product');

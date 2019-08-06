@@ -14,5 +14,25 @@ RewriteRule xoa-san-pham/([0-9]+) index.php?controller=cart&action=delete&id=$1
 #trang thanh toán
 RewriteRule thanh-toan index.php?controller=order&action=payment
 
+#thực đơn
+RewriteRule thuc-don index.php?controller=product&action=index
 #trang sản phẩm
-RewriteRule san-pham/(.*)/([0-9]+) index.php?controller=product&action=detail&id=$2 [QSA]
+RewriteRule san-pham/(.*)/([0-9]+) index.php?controller=product&action=detail&id=$2
+#mon chinh
+RewriteRule mon-chinh index.php?controller=product&action=lunch_food
+#điểm tâm sáng
+RewriteRule diem-tam-sang index.php?controller=product&action=breakfast_food
+#thức uống
+RewriteRule thuc-uong index.php?controller=product&action=drink
+#rượu
+RewriteRule ruou index.php?controller=product&action=booze
+#trang chủ
+RewriteRule trang-chu index.php?controller=home&action=index
+#giới thiệu
+RewriteRule gioi-thieu index.php?controller=home&action=intro
+#dịch vụ
+RewriteRule dich-vu index.php?controller=home&action=service
+#liên hệ
+RewriteRule lien-he index.php?controller=home&action=contact
+
+
