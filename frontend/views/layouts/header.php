@@ -37,7 +37,7 @@
                 </ul>
             </li>
             <li><a href="<?php echo 'dich-vu'?>" class="hvr-float-shadow">Dịch vụ</a></li>
-            <li><a href="<?php echo 'lien-he'?>" class="hvr-float-shadow">Liên hệ</a></li>
+            <li><a href="<?php echo 'index.php?controller=news&action=contact'?>" class="hvr-float-shadow">Liên hệ</a></li>
         </ul>
         <div id="menu4" class="container">
             <div class="row">

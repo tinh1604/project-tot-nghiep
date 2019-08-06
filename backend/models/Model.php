@@ -75,7 +75,7 @@ class Model {
      *
      * @return string giao diện phân trang
      */
-    public function getPagination($table, $product_category_id)
+    public function getPagination($table)
     {
         $url = $_SERVER['REQUEST_URI'];
         if (!empty($_SERVER['QUERY_STRING'])) {
@@ -86,7 +86,7 @@ class Model {
         //thực hiện truy vấn lấy ra toàn bộ tổng số bản ghi đang có trong tham số $table truyền vào
         $connection = $this->openConnection();
         //gắn thêm param search này vào câu truy vấn lấy tổng số bản ghi để phân trang
-        $querySelect = "SELECT COUNT(*) as `num` FROM {$table} {$this->querySearch} AND `product_category_id = $product_category_id`";
+        $querySelect = "SELECT COUNT(*) as `num` FROM {$table} {$this->querySearch}";
         $results = mysqli_query($connection, $querySelect);
         $rowArr = mysqli_fetch_all($results, MYSQLI_ASSOC);
         $total = $rowArr[0]['num'];

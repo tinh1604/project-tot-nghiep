@@ -10,7 +10,6 @@ class Category extends Model
   {
     $connection = $this->openConnection();
     $querySelect = "SELECT * FROM categories 
-                    ORDER BY categories.id DESC
                     LIMIT {$this->startpoint}, {$this->per_page}";
     $results = mysqli_query($connection, $querySelect);
     $categories = [];
@@ -36,15 +35,14 @@ class Category extends Model
     return $categories;
   }
 
-  public function insert($category = [])
+  public function insert($category)
   {
     $connection = $this->openConnection();
     $queryInsert = "INSERT INTO categories
-              (`name`, `avatar`, `description`, `status`)
+              (`name`,`description`, `status`)
         VALUES('{$category['name']}', 
-        '{$category['avatar']}', 
         '{$category['description']}', 
-        {$category['status']})";
+        '{$category['status']}')";
     $isInsert = mysqli_query($connection, $queryInsert);
     $this->closeConnection($connection);
 

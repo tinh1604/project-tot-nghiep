@@ -38,8 +38,6 @@ class NewsController extends Controller
   {
     $category_model = new Category();
     $categories = $category_model->getAll();
-
-    //xử lý khi người dùng submit form
     if (isset($_POST['submit'])) {
       $title= $_POST['title'];
       $category_id = $_POST['category_id'];
@@ -232,5 +230,7 @@ class NewsController extends Controller
     $news = $newsModel->getById($id);
     require_once 'views/news/detail.php';
   }
+
+
 
 }

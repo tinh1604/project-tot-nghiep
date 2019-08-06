@@ -20,10 +20,11 @@
         <table class="table table-bordered">
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Status</th>
-                <th>Created_at</th>
-                <th>Ation</th>
+                <th>Tên danh mục</th>
+                <th>Miêu tả</th>
+                <th>Trạng thái</th>
+                <th>Thời gian tạo</th>
+                <th>Xem / sửa / xóa</th>
             </tr>
             <?php if (!empty($categories)): ?>
                 <?php foreach ($categories as $category): ?>
@@ -33,6 +34,9 @@
                         </td>
                         <td>
                             <?= $category['name']; ?>
+                        </td>
+                        <td>
+                            <?= $category['description']; ?>
                         </td>
                         <td>
                             <?php
@@ -58,8 +62,8 @@
                             $urlUpdate = 'index.php?controller=category&action=update&id=' . $category['id'];
                             $urlDelete = 'index.php?controller=category&action=delete&id=' . $category['id'];
                             ?>                          &nbsp;
-                            <a href="<?php echo $urlDetail?>"><i class="fas fa-eye"></i></a>
-                            <a href="<?php echo $urlUpdate?>"><i class="fas fa-edit"></i></a>
+                            <a href="<?php echo $urlDetail?>"><i class="fas fa-eye"></i></a> &nbsp; &nbsp;
+                            <a href="<?php echo $urlUpdate?>"><i class="fas fa-edit"></i></a>&nbsp; &nbsp;
                             <a href="<?php echo $urlDelete?>" onclick="return confirm('Bạn có chắc chắn muốn xóa bản ghi này không?')"><i class="fas fa-trash-alt"></i></a>&nbsp;
                         </td>
                     </tr>

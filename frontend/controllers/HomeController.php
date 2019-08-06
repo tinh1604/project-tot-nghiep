@@ -14,41 +14,4 @@ class HomeController extends Controller {
         require_once 'views/homes/index.php';
     }
 
-    public function intro() {
-        $title = 'Giới thiệu';
-        $newsModel = new News();
-        $news = $newsModel->getAllPagination();
-
-        $pagerNews = $newsModel->getPagination('news');
-        //lấy danh sách sản phẩm đang có trên hệ thống
-        //mục đích để demo chức năng giỏ hàng
-        $productModel = new Product();
-        $products = $productModel->getAll();
-        require_once 'views/homes/intro.php';
-    }
-    public function service() {
-        $title = 'Dịch vụ';
-        $newsModel = new News();
-        $news = $newsModel->getAllPagination();
-
-        $pagerNews = $newsModel->getPagination('news');
-        //lấy danh sách sản phẩm đang có trên hệ thống
-        //mục đích để demo chức năng giỏ hàng
-        $productModel = new Product();
-        $products = $productModel->getAll();
-        require_once 'views/homes/service.php';
-    }
-    public function contact() {
-        $title = 'Liên hệ';
-        $newsModel = new News();
-        $news = $newsModel->getAllPagination();
-
-        $pagerNews = $newsModel->getPagination('news');
-        //lấy danh sách sản phẩm đang có trên hệ thống
-        //mục đích để demo chức năng giỏ hàng
-        $productModel = new Product();
-        $products = $productModel->getAll();
-        require_once 'views/homes/contact.php';
-    }
-
 }

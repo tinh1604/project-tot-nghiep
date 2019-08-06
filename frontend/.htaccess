@@ -29,10 +29,10 @@ RewriteRule ruou index.php?controller=product&action=booze
 #trang chủ
 RewriteRule trang-chu index.php?controller=home&action=index
 #giới thiệu
-RewriteRule gioi-thieu index.php?controller=home&action=intro
+RewriteRule gioi-thieu index.php?controller=news&action=intro
 #dịch vụ
-RewriteRule dich-vu index.php?controller=home&action=service
+RewriteRule dich-vu index.php?controller=news&action=service
 #liên hệ
-RewriteRule lien-he index.php?controller=home&action=contact
+#RewriteRule lien-he index.php?controller=news&action=contact
 
 
