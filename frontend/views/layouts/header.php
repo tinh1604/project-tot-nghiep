@@ -3,7 +3,7 @@
 <head>
     <base href="<?php echo $_SERVER['SCRIPT_NAME'] ?>">
     <meta charset="UTF-8">
-    <title><?php echo $title?></title>
+    <title><?php echo $title ?></title>
     <meta name="viewport" content="width=device-width,
      initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
@@ -11,24 +11,48 @@
     <link rel="stylesheet" href="assets/css/all.min.css"/>
 </head>
 <body>
-<?php require_once 'views/layouts/slide.php'?>
+<?php require_once 'views/layouts/slide.php' ?>
 <div id="block1">
     <div id="header" style="background: none">
-<!--    <div id="header">-->
+        <!--    <div id="header">-->
         <ul id="menu1">
-            <li><a href="" class="hvr-shrink">Đăng nhập</a></li>
-            <li><a href="" class="hvr-shrink">Đăng kí</a></li>
-            <li><a href="" class="hvr-shrink">Đơn hàng</a></li>
-            <li><a target="_blank"
-                   href="https://www.google.com/maps/place/C%C3%A0+ph%C3%AA+Victoria/@10.8228413,106.4580601,17z/data=!3m1!4b1!4m5!3m4!1s0x310ad41594229c33:0x7ac7ea49fbb02db7!8m2!3d10.8228413!4d106.4602488?hl=vi"
-                   class="hvr-shrink">Bản đồ</a></li>
+            <li style="<?php echo isset($_SESSION['user']) ? 'display: none' : '' ?>"><a href="dang-nhap"
+                                                                                         class="hvr-shrink">Đăng
+                    nhập</a></li>
+            <li style="<?php echo isset($_SESSION['user']) ? 'display: none' : '' ?>"><a href="dang-ki" class="hvr-shrink">Đăng kí</a></li>
+            <?php if (isset($_SESSION['user'])) : ?>
+                <ul class="user_login" >
+                    <li class="user-header">
+                        <img src="assets/imgs/avatar.jpg" class="img-user" alt="User Image">
+
+                        <p>
+                            Nguyễn Thanh Tình - Web Developer
+                        </p>
+                    </li>
+                    <!-- Menu Footer-->
+                    <li >
+                        <div class="pull-left">
+                            <a href="index.php?controller=admin&action=detail&id=<?php echo $_SESSION['admin']['id']; ?>"
+                               class="btn btn-default btn-flat">Profile</a>
+                        </div>
+                        <div class="pull-left">
+                            <a href="index.php?controller=admin&action=detail&id=<?php echo $_SESSION['admin']['id']; ?>"
+                               class="btn btn-default btn-flat">Đơn hàng</a>
+                        </div>
+                        <div class="pull-right">
+                            <a href="logout" class="btn btn-default btn-flat" onclick="return confirm('Đăng xuất?')">Sign out</a>
+                        </div>
+                    </li>
+                </ul>
+            <?php endif; ?>
         </ul>
+
 
         <img id="img1" src="assets/imgs/logo3.jpg"/>
         <ul id="menu2">
-            <li><a href="<?php echo 'trang-chu'?>" class="hvr-float-shadow">Trang chủ</a></li>
-            <li><a href="<?php echo 'gioi-thieu'?>" class="hvr-float-shadow">Giới thiệu</a></li>
-            <li id="menu5" onclick="myfunction()"><a class="hvr-float-shadow" >Thực đơn <i class="fas fa-sort-down"> </i></a>
+            <li><a href="<?php echo 'trang-chu' ?>" class="hvr-float-shadow">Trang chủ</a></li>
+            <li><a href="<?php echo 'gioi-thieu' ?>" class="hvr-float-shadow">Giới thiệu</a></li>
+            <li id="menu5" onclick="myfunction()"><a class="hvr-float-shadow">Thực đơn <i class="fas fa-sort-down"> </i></a>
                 <ul id="submenu">
                     <li><a href="diem-tam-sang">Điểm tâm sáng</a></li>
                     <li><a href="mon-chinh">Món chính</a></li>
@@ -36,8 +60,8 @@
                     <li><a href="ruou">Rượu</a></li>
                 </ul>
             </li>
-            <li><a href="<?php echo 'dich-vu'?>" class="hvr-float-shadow">Dịch vụ</a></li>
-            <li><a href="<?php echo 'index.php?controller=news&action=contact'?>" class="hvr-float-shadow">Liên hệ</a></li>
+            <li><a href="<?php echo 'dich-vu' ?>" class="hvr-float-shadow">Dịch vụ</a></li>
+            <li><a href="<?php echo 'lien-he' ?>" class="hvr-float-shadow">Liên hệ</a></li>
         </ul>
         <div id="menu4" class="container">
             <div class="row">
@@ -50,7 +74,8 @@
                 <ul id="menu3" class="col-md-2 col-4">
                     <p id="content3">Thực đơn chính</p>
                     <li>
-                        <a href="diem-tam-sang" class="hvr-forward"><i class="fas fa-hamburger"></i> Điểm tâm sáng</a> <br/>
+                        <a href="diem-tam-sang" class="hvr-forward"><i class="fas fa-hamburger"></i> Điểm tâm sáng</a>
+                        <br/>
                     </li>
                     <li>
                         <a href="mon-chinh" class="hvr-forward"><i class="fas fa-utensils"></i> Cơm trưa</a> <br/>

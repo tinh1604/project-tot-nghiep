@@ -34,7 +34,6 @@ class ProductController extends Controller
 
         $productModel = new Product();
         $product = $productModel->getAll($arrSearch);
-        $pages = $productModel->getPagination('product');
 
         //lấy thông tin danh mục cho phần search
         $product_category_model = new Product_category();
@@ -45,37 +44,29 @@ class ProductController extends Controller
     public function lunch_food() {
         $title = 'Món chính';
         $product_category_name = 'Món chính';
-        $product_category_id = '2';
         $productModel = new Product();
         $product = $productModel->get_lunch_food();
-        $pages = $productModel->getPagination('product');
         require_once 'views/products/product.php';
     }
     public function breakfast_food() {
         $title = 'Điểm tâm sáng';
         $product_category_name = 'Điểm tâm sáng';
-        $product_category_id = '1';
         $productModel = new Product();
         $product = $productModel->get_breakfast_food();
-        $pages = $productModel->getPagination('product');
         require_once 'views/products/product.php';
     }
     public function drink() {
         $title = 'Thức uống';
-        $product_category_id = '3';
         $product_category_name = 'Thức uống';
         $productModel = new Product();
         $product = $productModel->get_drink();
-        $pages = $productModel->getPagination('product');
         require_once 'views/products/product.php';
     }
     public function booze() {
         $title = 'Rượu';
         $product_category_name = 'Rượu';
-        $product_category_id = '4';
         $productModel = new Product();
         $product = $productModel->get_booze();
-        $pages = $productModel->getPagination('product');
         require_once 'views/products/product.php';
     }
 }

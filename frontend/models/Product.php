@@ -18,7 +18,6 @@ class Product extends Model
         $querySelect = "SELECT product.*, product_category.name as product_category_name FROM product
                     INNER JOIN product_category ON product_category.id = product.product_category_id 
                                         {$this->querySearch}  
-                                       LIMIT {$this->startpoint}, {$this->per_page}
  ";
         $result = mysqli_query($connection, $querySelect);
         $product = [];
@@ -53,7 +52,6 @@ class Product extends Model
         $querySelect = "SELECT product.*, product_category.name as product_category_name FROM product
                     INNER JOIN product_category ON product_category.id = product.product_category_id 
                     WHERE product.product_category_id = '2'
-                    LIMIT {$this->startpoint}, {$this->per_page}
                     ";
         $result = mysqli_query($connection, $querySelect);
         $product = [];
@@ -71,8 +69,6 @@ class Product extends Model
         $querySelect = "SELECT product.*, product_category.name as product_category_name FROM product
                     INNER JOIN product_category ON product_category.id = product.product_category_id 
                     WHERE product.product_category_id = '1'
-                    LIMIT {$this->startpoint}, {$this->per_page}
-
                     ";
         $result = mysqli_query($connection, $querySelect);
         $product = [];
@@ -89,7 +85,6 @@ class Product extends Model
         $querySelect = "SELECT product.*, product_category.name as product_category_name FROM product
                     INNER JOIN product_category ON product_category.id = product.product_category_id 
                     WHERE product.product_category_id = '3'
-                    LIMIT {$this->startpoint}, {$this->per_page}
                     ";
         $result = mysqli_query($connection, $querySelect);
         $product = [];
@@ -106,7 +101,6 @@ class Product extends Model
         $querySelect = "SELECT product.*, product_category.name as product_category_name FROM product
                     INNER JOIN product_category ON product_category.id = product.product_category_id 
                     WHERE product.product_category_id = '4'
-                    LIMIT {$this->startpoint}, {$this->per_page}
                     ";
         $result = mysqli_query($connection, $querySelect);
         $product = [];

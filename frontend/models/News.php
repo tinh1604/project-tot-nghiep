@@ -102,18 +102,5 @@ class News extends Model
         return $news;
     }
 
-    public function insert_contact($contact)
-    {
-        $connection = $this->openConnection();
-        $queryInsert = "INSERT INTO contact(`name`, `address`, `phone`, `email`)
-    VALUES('{$contact['name']}',
-    '{$contact['address']}',
-    '{$contact['phone']}',
-    '{$contact['email']}'
-    )";
-        $isInsert = mysqli_query($connection, $queryInsert);
-        $this->closeConnection($connection);
-        return $isInsert;
-    }
 
 }

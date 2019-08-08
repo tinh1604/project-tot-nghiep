@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-10 col-12">
                 <div style="padding-top: 20px" id="main2">
-                    <a href="index.php?controller=product&action=lunch_food" class="content19">MÓN CHÍNH</a> <br/> <br/>
+                    <a href="thuc-don" class="content19">Thực đơn</a> <br/> <br/>
                     <div class="container">
                         <div class="row">
                             <?php if (!empty($product)): ?>

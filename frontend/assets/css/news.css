@@ -1,4 +1,4 @@
-* {
+content19* {
     padding: 0;
     margin: 0;
 }
@@ -49,7 +49,7 @@
 
 #menu1 {
     position: absolute;
-    margin-left: 76%;
+    margin-left: 85%;
     margin-top: 15px;
 }
 
@@ -127,7 +127,13 @@ a:link {
     padding-right: 5px;
     font-family: sans-serif;
 }
-
+.user_login li a{
+    color: white;
+}
+.user_login li{
+    color: white;
+    list-style: none;
+}
 #content3 {
     width: 135px;
     font-size: 13px;
@@ -608,7 +614,12 @@ a:link {
     border-radius: 5px;
     text-align: center;
     padding: 5px 10px;
+    margin-left: 15px;
 
+}
+.img-user{
+   width: 60px;
+    border-radius: 50%;
 }
 .content19:hover{
     color: white;
@@ -966,7 +977,7 @@ p{text-align: justify}
     /*padding: 5px;*/
 }
 .submit1 {
-    background: #4e8bcd;
+    background: #1037e1;
     padding: 5px 15px;
     border-radius: 5px;
     border: none;
@@ -982,7 +993,7 @@ p{text-align: justify}
     margin: 0 auto;
     text-align: center;
     width: 50%;
-    background: #e59727;
+    background: #eeca86;
     padding-top: 15px;
     padding-bottom: 15px;
 }
@@ -1162,6 +1173,9 @@ ul.pagination .page_info{
     #header1{
         width: 100%;
         margin: 0;
+    }
+    #menu1{
+        margin-left: 75%;
     }
 
 }

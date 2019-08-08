@@ -32,7 +32,7 @@
                 <br/>
                
                 <div id="main2">
-                    <p style="display: block; margin:  20px auto" class="content10">Món ngon nổi bật</p>
+                    <p style="display: block; margin:  20px auto" class="content10">Menu nổi bật</p>
 
                     <div class="container">
 
