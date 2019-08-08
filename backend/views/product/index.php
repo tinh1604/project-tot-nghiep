@@ -136,7 +136,6 @@
 
     </table>
     <?php
-    //hiển thị phân trang đã có được từ controller
     echo $pages;
     ?>
 </div>

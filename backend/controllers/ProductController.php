@@ -22,8 +22,6 @@ class ProductController extends Controller
 
         $productModel = new Product();
         $product = $productModel->getAll($arrSearch);
-        $pages = $productModel->getPagination('product');
-
         //lấy thông tin danh mục cho phần search
         $product_category_model = new Product_category();
         $product_category = $product_category_model->getAll();

@@ -22,11 +22,11 @@
             <li style="<?php echo isset($_SESSION['user']) ? 'display: none' : '' ?>"><a href="dang-ki" class="hvr-shrink">Đăng kí</a></li>
             <?php if (isset($_SESSION['user'])) : ?>
                 <ul class="user_login" >
-                    <li class="user-header">
-                        <img src="assets/imgs/avatar.jpg" class="img-user" alt="User Image">
+                    <li>
+                        <img src="assets/imgs/avatar.jpg" class="img_user" alt="User Image">
 
-                        <p>
-                            Nguyễn Thanh Tình - Web Developer
+                        <p class="user_header">
+                            Nguyễn Thanh Tình
                         </p>
                     </li>
                     <!-- Menu Footer-->

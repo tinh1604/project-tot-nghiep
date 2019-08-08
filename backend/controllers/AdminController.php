@@ -165,7 +165,7 @@ class AdminController extends Controller
             if (!empty($adminLogin)) {
                 $_SESSION['success'] = 'Đăng nhập thành công';
                 $_SESSION['admin'] = $adminLogin;
-                header("Location: index.php?controller=news&action=index");
+                header("Location: index.php?");
                 exit();
             }
             else {

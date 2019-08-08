@@ -49,7 +49,7 @@ content19* {
 
 #menu1 {
     position: absolute;
-    margin-left: 85%;
+    margin-left: 80%;
     margin-top: 15px;
 }
 
@@ -127,12 +127,18 @@ a:link {
     padding-right: 5px;
     font-family: sans-serif;
 }
+.user_login {
+    margin-top: -10px;
+}
 .user_login li a{
     color: white;
 }
 .user_login li{
     color: white;
     list-style: none;
+}
+.user_header{
+    color: white;
 }
 #content3 {
     width: 135px;
@@ -173,8 +179,6 @@ a:link {
     margin-bottom: 0px;
     padding-bottom: 8px;
     padding-top: 8px;
-
-
 
 }
 
@@ -285,7 +289,7 @@ a:link {
     border-radius: 20px;
     width: 150px;
     background: none;
-    margin: 0px auto;
+    margin-left: -40px;
 }
 
 
@@ -617,9 +621,10 @@ a:link {
     margin-left: 15px;
 
 }
-.img-user{
-   width: 60px;
+.img_user{
+   width: 50px;
     border-radius: 50%;
+    margin-left: 40px;
 }
 .content19:hover{
     color: white;
@@ -707,8 +712,8 @@ a:link {
 
 #submenu{
     position: absolute;
-    width: 150px;
-    margin-left: 288px;
+    width: 195px;
+    margin-left: 248px;
     margin-top: -5px;
     display: none;
 
@@ -718,8 +723,6 @@ a:link {
     background: #c8e839 ;
     padding: 5px 15px;
     display: block;
-    padding-left: 30px;
-
 }
 #submenu a{
     color: #5e3700;
@@ -1094,7 +1097,7 @@ ul.pagination .page_info{
     #submenu {
         position: relative;
         width: 150px;
-        margin-left: 0px;
+        margin-left: -40px;
         margin-top: -5px;
     }
     #menu2 li:hover #submenu {
